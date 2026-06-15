@@ -101,8 +101,8 @@ export default async function CityHub({
 
       {/* Local conditions -- image-led split */}
       <SplitImageSection
-        image={city.heroImage}
-        imageAlt={`Construction conditions in ${city.name}, Texas`}
+        image="/images/lone-star-construction-site.jpg"
+        imageAlt="Lone Star Contracting construction site"
         imagePosition="right"
         bg="white"
       >

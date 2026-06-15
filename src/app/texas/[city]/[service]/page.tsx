@@ -332,10 +332,10 @@ export default async function ServiceCityLeaf({
         }}
       />
 
-      {/* Hero with service photo */}
+      {/* Hero with city skyline */}
       <PageHero
-        image={service.image}
-        imageAlt={`${service.name} services in ${city.name}, Texas`}
+        image={city.heroImage}
+        imageAlt={`${city.name}, Texas skyline`}
       >
         <Breadcrumbs
           items={[
@@ -385,8 +385,8 @@ export default async function ServiceCityLeaf({
 
       {/* Local conditions -- image-led split section */}
       <SplitImageSection
-        image={city.heroImage}
-        imageAlt={`${city.name}, Texas construction conditions`}
+        image={service.image}
+        imageAlt={`${service.name} work in ${city.name}, Texas`}
         imagePosition="right"
         bg="white"
       >
@@ -425,8 +425,8 @@ export default async function ServiceCityLeaf({
           <div className="flex items-center justify-center">
             <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden">
               <Image
-                src={service.image}
-                alt={`${service.name} work in ${city.name}`}
+                src="/images/lone-star-crew-at-work.jpg"
+                alt="Lone Star Contracting crew at work"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"

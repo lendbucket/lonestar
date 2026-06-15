@@ -132,8 +132,8 @@ export default async function ServicePage({
 
       {/* Why Lone Star -- image-led split */}
       <SplitImageSection
-        image={service.image}
-        imageAlt={`Professional ${service.name.toLowerCase()} work in Texas`}
+        image="/images/lone-star-quality-inspection.jpg"
+        imageAlt="Lone Star Contracting quality inspection"
         imagePosition="right"
         bg="light"
       >
