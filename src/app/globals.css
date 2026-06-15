@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+:root {
+  --background: #F6F3EE;
+  --foreground: #17181B;
+  --primary: #1E2A38;
+  --accent: #A8451C;
+  --muted: #6B6660;
+  --bone: #F6F3EE;
+  --charcoal: #17181B;
+  --slate: #1E2A38;
+  --clay: #A8451C;
+  --stone: #6B6660;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-accent: var(--accent);
+  --color-muted: var(--muted);
+  --color-bone: var(--bone);
+  --color-charcoal: var(--charcoal);
+  --color-slate: var(--slate);
+  --color-clay: var(--clay);
+  --color-stone: var(--stone);
+  --font-serif: var(--font-fraunces);
+  --font-sans: var(--font-inter);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif), Georgia, serif;
+  color: var(--primary);
+  line-height: 1.15;
+}
+
+::selection {
+  background-color: var(--accent);
+  color: #fff;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus ring for accessibility */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
