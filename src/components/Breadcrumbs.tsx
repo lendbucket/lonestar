@@ -26,23 +26,23 @@ export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
-      <nav aria-label="Breadcrumb" className="text-sm text-stone">
+      <nav aria-label="Breadcrumb" className="text-sm text-current opacity-70">
         <ol className="flex flex-wrap items-center gap-1.5">
           {allItems.map((item, index) => (
             <li key={item.href} className="flex items-center gap-1.5">
               {index > 0 && (
-                <span className="text-stone/40" aria-hidden="true">
+                <span className="opacity-50" aria-hidden="true">
                   /
                 </span>
               )}
               {index === allItems.length - 1 ? (
-                <span className="text-charcoal font-medium" aria-current="page">
+                <span className="opacity-100 font-medium" aria-current="page">
                   {item.label}
                 </span>
               ) : (
                 <Link
                   href={item.href}
-                  className="hover:text-slate transition-colors"
+                  className="hover:opacity-100 transition-opacity"
                 >
                   {item.label}
                 </Link>

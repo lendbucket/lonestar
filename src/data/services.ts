@@ -18,12 +18,14 @@ export interface Service {
   keywordVariants: string[];
   customerAngle: string;
   serviceType: "commercial" | "residential" | "both";
+  image: string;
 }
 
 export interface ServiceCategory {
   id: string;
   name: string;
   description: string;
+  image: string;
 }
 
 // ---- Categories -----------------------------------------------------------
@@ -34,42 +36,49 @@ export const serviceCategories: ServiceCategory[] = [
     name: "Structural and Foundation",
     description:
       "Foundation repair, concrete work, framing, masonry, and structural services for residential and commercial properties across Texas.",
+    image: "/images/lone-star-foundation-repair.jpg",
   },
   {
     id: "exterior-and-envelope",
     name: "Exterior and Envelope",
     description:
       "Roofing, siding, stucco, gutters, windows, doors, exterior painting, and waterproofing to protect your building from the elements.",
+    image: "/images/lone-star-exterior-work.jpg",
   },
   {
     id: "mechanical-licensed-trades",
     name: "Mechanical (Licensed Trades)",
     description:
       "Plumbing, electrical, HVAC, and irrigation services delivered by licensed professionals in our network.",
+    image: "/images/lone-star-plumbing.jpg",
   },
   {
     id: "interior-and-finish",
     name: "Interior and Finish",
     description:
       "Drywall, painting, flooring, tile, cabinetry, countertops, and trim work to complete your interior space.",
+    image: "/images/lone-star-interior-finish.jpg",
   },
   {
     id: "site-work-and-outdoor",
     name: "Site Work and Outdoor",
     description:
       "Land clearing, grading, demolition, fencing, decks, patios, hardscaping, landscaping, tree work, and drainage solutions.",
+    image: "/images/lone-star-site-work.jpg",
   },
   {
     id: "maintenance-and-specialty",
     name: "Maintenance and Specialty",
     description:
       "Pressure washing, parking lot striping, sealcoating, welding, handyman services, and debris removal for ongoing property care.",
+    image: "/images/lone-star-maintenance-work.jpg",
   },
   {
     id: "construction-and-remodel",
     name: "Construction and Remodel",
     description:
       "Residential remodels, kitchen and bath renovations, room additions, custom homes, commercial construction, tenant finish-outs, and insurance restoration.",
+    image: "/images/lone-star-home-remodel.jpg",
   },
 ];
 
@@ -108,6 +117,7 @@ export const services: Service[] = [
     customerAngle:
       "Homeowners worry that cracks and uneven floors signal major structural failure and need a contractor they can trust to diagnose and fix the real problem.",
     serviceType: "both",
+    image: "/images/lone-star-foundation-repair.jpg",
   },
   {
     id: "concrete-flatwork",
@@ -139,6 +149,7 @@ export const services: Service[] = [
     customerAngle:
       "Property owners want concrete that is poured right the first time so they do not have to tear it out and start over in a few years.",
     serviceType: "both",
+    image: "/images/lone-star-concrete-work.jpg",
   },
   {
     id: "framing",
@@ -168,6 +179,7 @@ export const services: Service[] = [
     customerAngle:
       "Builders and homeowners need framing crews that show up on schedule and build plumb, square, and to code so every trade behind them can do clean work.",
     serviceType: "both",
+    image: "/images/lone-star-foundation-repair.jpg",
   },
   {
     id: "retaining-walls",
@@ -197,6 +209,7 @@ export const services: Service[] = [
     customerAngle:
       "Property owners dealing with erosion or sloped lots need a wall that is engineered correctly so it does not lean or fail after a heavy rain.",
     serviceType: "both",
+    image: "/images/lone-star-foundation-repair.jpg",
   },
   {
     id: "masonry",
@@ -226,6 +239,7 @@ export const services: Service[] = [
     customerAngle:
       "Owners of older brick or stone buildings need skilled masons who can match existing materials and restore structural integrity without making the repair look like a patch job.",
     serviceType: "both",
+    image: "/images/lone-star-foundation-repair.jpg",
   },
   {
     id: "structural-repairs",
@@ -255,6 +269,7 @@ export const services: Service[] = [
     customerAngle:
       "Property owners facing visible structural damage need a crew that can accurately scope the problem and make lasting repairs instead of covering up symptoms.",
     serviceType: "both",
+    image: "/images/lone-star-foundation-repair.jpg",
   },
 
   // ========================================================================
@@ -291,6 +306,7 @@ export const services: Service[] = [
     customerAngle:
       "After a storm or years of wear, property owners need a roofer who will be honest about what actually needs replacing and stand behind the work with a solid warranty.",
     serviceType: "both",
+    image: "/images/lone-star-roofing.jpg",
   },
   {
     id: "siding",
@@ -320,6 +336,7 @@ export const services: Service[] = [
     customerAngle:
       "Homeowners want siding that protects against Texas heat and wind-driven rain without warping, fading, or requiring constant maintenance.",
     serviceType: "both",
+    image: "/images/lone-star-exterior-work.jpg",
   },
   {
     id: "stucco",
@@ -348,6 +365,7 @@ export const services: Service[] = [
     customerAngle:
       "Property owners with cracked or peeling stucco want a repair that blends seamlessly with the original finish and seals out moisture for the long term.",
     serviceType: "both",
+    image: "/images/lone-star-exterior-work.jpg",
   },
   {
     id: "gutters",
@@ -377,6 +395,7 @@ export const services: Service[] = [
     customerAngle:
       "Homeowners dealing with overflowing gutters and water pooling near the foundation need a lasting fix that channels water away from the structure.",
     serviceType: "both",
+    image: "/images/lone-star-exterior-work.jpg",
   },
   {
     id: "windows-and-doors",
@@ -406,6 +425,7 @@ export const services: Service[] = [
     customerAngle:
       "Owners tired of drafty rooms and high energy bills want windows and doors installed correctly so the seal holds and the savings show up on the utility bill.",
     serviceType: "both",
+    image: "/images/lone-star-exterior-work.jpg",
   },
   {
     id: "exterior-painting",
@@ -435,6 +455,7 @@ export const services: Service[] = [
     customerAngle:
       "Property owners want a paint job that looks sharp on day one and holds up against Texas sun and weather for years instead of peeling after the first summer.",
     serviceType: "both",
+    image: "/images/lone-star-exterior-work.jpg",
   },
   {
     id: "waterproofing",
@@ -464,6 +485,7 @@ export const services: Service[] = [
     customerAngle:
       "Property owners with recurring moisture problems need a waterproofing system that solves the root cause instead of just treating the symptoms every rainy season.",
     serviceType: "both",
+    image: "/images/lone-star-exterior-work.jpg",
   },
 
   // ========================================================================
@@ -500,6 +522,7 @@ export const services: Service[] = [
     customerAngle:
       "Owners facing leaks, low pressure, or aging pipes need a licensed plumber who can diagnose the issue fast, provide an honest quote, and fix it right.",
     serviceType: "both",
+    image: "/images/lone-star-plumbing.jpg",
   },
   {
     id: "electrical",
@@ -532,6 +555,7 @@ export const services: Service[] = [
     customerAngle:
       "Property owners know that electrical work done wrong is a fire hazard and want a licensed electrician who will do the job to code and pull the proper permits.",
     serviceType: "both",
+    image: "/images/lone-star-electrical.jpg",
   },
   {
     id: "hvac",
@@ -564,6 +588,7 @@ export const services: Service[] = [
     customerAngle:
       "In Texas heat, a broken AC is an emergency. Property owners need a licensed HVAC team that can respond quickly and recommend the right system instead of upselling.",
     serviceType: "both",
+    image: "/images/lone-star-hvac-system.jpg",
   },
   {
     id: "irrigation",
@@ -594,6 +619,7 @@ export const services: Service[] = [
     customerAngle:
       "Property owners want a sprinkler system that waters evenly, conserves water, and does not leak underground where nobody can see the damage until the bill arrives.",
     serviceType: "both",
+    image: "/images/lone-star-plumbing.jpg",
   },
 
   // ========================================================================
@@ -627,6 +653,7 @@ export const services: Service[] = [
     customerAngle:
       "Homeowners and builders want seamless drywall that does not show seams, nail pops, or uneven texture once the paint goes on.",
     serviceType: "both",
+    image: "/images/lone-star-interior-finish.jpg",
   },
   {
     id: "interior-painting",
@@ -656,6 +683,7 @@ export const services: Service[] = [
     customerAngle:
       "Owners want clean lines, even coverage, and a crew that protects floors and furniture instead of leaving paint splatters everywhere.",
     serviceType: "both",
+    image: "/images/lone-star-interior-painting.jpg",
   },
   {
     id: "flooring",
@@ -686,6 +714,7 @@ export const services: Service[] = [
     customerAngle:
       "Property owners want flooring installed flat and tight with clean transitions between rooms and no squeaks or gaps that show up weeks later.",
     serviceType: "both",
+    image: "/images/lone-star-interior-finish.jpg",
   },
   {
     id: "tile",
@@ -715,6 +744,7 @@ export const services: Service[] = [
     customerAngle:
       "Homeowners want tile work with consistent grout lines, proper waterproofing behind the tile, and no cracked tiles from poor substrate prep.",
     serviceType: "both",
+    image: "/images/lone-star-interior-finish.jpg",
   },
   {
     id: "cabinetry-and-countertops",
@@ -744,6 +774,7 @@ export const services: Service[] = [
     customerAngle:
       "Kitchen and bath remodelers want cabinets that are level, doors that close properly, and countertop seams that are tight and barely visible.",
     serviceType: "both",
+    image: "/images/lone-star-interior-finish.jpg",
   },
   {
     id: "trim-and-finish-carpentry",
@@ -773,6 +804,7 @@ export const services: Service[] = [
     customerAngle:
       "Homeowners and builders want tight miters, smooth transitions, and detail work that elevates the entire feel of the finished space.",
     serviceType: "both",
+    image: "/images/lone-star-interior-finish.jpg",
   },
 
   // ========================================================================
@@ -806,6 +838,7 @@ export const services: Service[] = [
     customerAngle:
       "Landowners preparing to build or develop a property need a crew that can clear the site efficiently without damaging the trees and features they want to keep.",
     serviceType: "both",
+    image: "/images/lone-star-site-work.jpg",
   },
   {
     id: "grading-and-excavation",
@@ -835,6 +868,7 @@ export const services: Service[] = [
     customerAngle:
       "Builders and property owners need precise grading and excavation so water drains away from structures and the site is prepped correctly before anything gets built on it.",
     serviceType: "both",
+    image: "/images/lone-star-site-work.jpg",
   },
   {
     id: "demolition",
@@ -864,6 +898,7 @@ export const services: Service[] = [
     customerAngle:
       "Property owners need demolition done safely and cleanly, with the site left ready for the next phase of work instead of a pile of debris and open questions.",
     serviceType: "both",
+    image: "/images/lone-star-site-work.jpg",
   },
   {
     id: "fencing",
@@ -895,6 +930,7 @@ export const services: Service[] = [
     customerAngle:
       "Property owners want a fence that is straight, sturdy, and built with posts set deep enough to stand up to Texas wind and soil movement.",
     serviceType: "both",
+    image: "/images/lone-star-fencing.jpg",
   },
   {
     id: "decks-and-patios",
@@ -924,6 +960,7 @@ export const services: Service[] = [
     customerAngle:
       "Homeowners want an outdoor living space that is built to code, looks great, and holds up to years of Texas sun without warping or splintering.",
     serviceType: "residential",
+    image: "/images/lone-star-site-work.jpg",
   },
   {
     id: "hardscaping",
@@ -953,6 +990,7 @@ export const services: Service[] = [
     customerAngle:
       "Homeowners investing in outdoor living want hardscape that drains properly, stays level over time, and does not shift or sink after the first season.",
     serviceType: "residential",
+    image: "/images/lone-star-site-work.jpg",
   },
   {
     id: "landscaping",
@@ -982,6 +1020,7 @@ export const services: Service[] = [
     customerAngle:
       "Property owners want landscaping that looks intentional, thrives in the local climate, and does not require constant replanting because the wrong species were chosen.",
     serviceType: "both",
+    image: "/images/lone-star-site-work.jpg",
   },
   {
     id: "tree-trimming-and-removal",
@@ -1011,6 +1050,7 @@ export const services: Service[] = [
     customerAngle:
       "Property owners with overgrown, dead, or storm-damaged trees need safe removal by a crew that will not drop a limb on the roof or leave a mess behind.",
     serviceType: "both",
+    image: "/images/lone-star-site-work.jpg",
   },
   {
     id: "drainage-and-french-drains",
@@ -1040,6 +1080,7 @@ export const services: Service[] = [
     customerAngle:
       "Homeowners with standing water, flooded yards, or soggy foundations need a drainage system designed for their specific lot and soil conditions.",
     serviceType: "both",
+    image: "/images/lone-star-site-work.jpg",
   },
 
   // ========================================================================
@@ -1073,6 +1114,7 @@ export const services: Service[] = [
     customerAngle:
       "Property managers and homeowners want a fast, thorough clean that restores curb appeal without damaging surfaces or landscaping.",
     serviceType: "both",
+    image: "/images/lone-star-maintenance-work.jpg",
   },
   {
     id: "parking-lot-striping",
@@ -1102,6 +1144,7 @@ export const services: Service[] = [
     customerAngle:
       "Property managers need crisp, code-compliant striping that keeps tenants and inspectors happy and reduces liability from poorly marked lots.",
     serviceType: "commercial",
+    image: "/images/lone-star-maintenance-work.jpg",
   },
   {
     id: "sealcoating",
@@ -1130,6 +1173,7 @@ export const services: Service[] = [
     customerAngle:
       "Property managers want to extend the life of their asphalt and avoid the cost of a full repave by staying ahead of cracks and surface wear.",
     serviceType: "both",
+    image: "/images/lone-star-maintenance-work.jpg",
   },
   {
     id: "welding-and-metal-fabrication",
@@ -1159,6 +1203,7 @@ export const services: Service[] = [
     customerAngle:
       "Property and business owners need welding done by someone who understands load requirements and finishes, not just someone with a torch.",
     serviceType: "both",
+    image: "/images/lone-star-maintenance-work.jpg",
   },
   {
     id: "general-handyman-and-repairs",
@@ -1189,6 +1234,7 @@ export const services: Service[] = [
     customerAngle:
       "Owners with a growing list of small repairs need one reliable crew to knock it all out instead of calling five different people for five small jobs.",
     serviceType: "both",
+    image: "/images/lone-star-maintenance-work.jpg",
   },
   {
     id: "junk-and-debris-removal",
@@ -1218,6 +1264,7 @@ export const services: Service[] = [
     customerAngle:
       "Property owners and contractors need debris gone fast so the next phase of work can start or so the property is ready to list, sell, or occupy.",
     serviceType: "both",
+    image: "/images/lone-star-maintenance-work.jpg",
   },
 
   // ========================================================================
@@ -1251,6 +1298,7 @@ export const services: Service[] = [
     customerAngle:
       "Homeowners dread juggling multiple contractors and timelines and want one team accountable for delivering the entire project on time and on budget.",
     serviceType: "residential",
+    image: "/images/lone-star-home-remodel.jpg",
   },
   {
     id: "kitchen-and-bath",
@@ -1280,6 +1328,7 @@ export const services: Service[] = [
     customerAngle:
       "Homeowners want their kitchen or bath done once and done right, without surprise costs, blown timelines, or finishes that do not match what was promised.",
     serviceType: "residential",
+    image: "/images/lone-star-home-remodel.jpg",
   },
   {
     id: "room-additions",
@@ -1309,6 +1358,7 @@ export const services: Service[] = [
     customerAngle:
       "Growing families need more space but want the addition to blend seamlessly with the existing home instead of looking like an afterthought bolted onto the side.",
     serviceType: "residential",
+    image: "/images/lone-star-home-remodel.jpg",
   },
   {
     id: "custom-home-construction",
@@ -1338,6 +1388,7 @@ export const services: Service[] = [
     customerAngle:
       "Families building their dream home want a builder who communicates clearly, manages the budget transparently, and delivers quality at every stage.",
     serviceType: "residential",
+    image: "/images/lone-star-home-remodel.jpg",
   },
   {
     id: "commercial-construction",
@@ -1367,6 +1418,7 @@ export const services: Service[] = [
     customerAngle:
       "Business owners and property developers need a contractor who can deliver on schedule because every day past the deadline is lost revenue.",
     serviceType: "commercial",
+    image: "/images/lone-star-commercial-building.jpg",
   },
   {
     id: "tenant-finish-out-and-build-outs",
@@ -1396,6 +1448,7 @@ export const services: Service[] = [
     customerAngle:
       "Landlords and tenants need the space ready by lease commencement and want a contractor who can manage permits, inspections, and subs without delay.",
     serviceType: "commercial",
+    image: "/images/lone-star-commercial-building.jpg",
   },
   {
     id: "insurance-restoration",
@@ -1425,6 +1478,7 @@ export const services: Service[] = [
     customerAngle:
       "Property owners dealing with damage from a storm, fire, or flood need a contractor who knows how to work with the insurance process and restore the property to pre-loss condition.",
     serviceType: "both",
+    image: "/images/lone-star-commercial-building.jpg",
   },
 ];
 

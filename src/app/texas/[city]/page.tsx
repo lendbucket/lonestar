@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { cities, getCityById } from "@/data/cities";
-import { services, getPriorityServices } from "@/data/services";
+import { getPriorityServices } from "@/data/services";
 import { Section, SectionHeader } from "@/components/Section";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Button, CTABanner } from "@/components/CTA";
+import { PageHero, SplitImageSection } from "@/components/PageHero";
 import { SITE_URL, SITE_NAME, CONTACT_EMAIL } from "@/lib/constants";
 
 export function generateStaticParams() {
@@ -65,22 +67,25 @@ export default async function CityHub({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
       />
 
-      <Section bg="white">
+      {/* Hero with city photo */}
+      <PageHero
+        image={city.heroImage}
+        imageAlt={`${city.name}, Texas skyline and cityscape`}
+      >
         <Breadcrumbs
           items={[
             { label: "Texas", href: "/texas" },
             { label: city.name, href: `/texas/${city.id}` },
           ]}
         />
-
-        <div className="mt-8 max-w-3xl">
+        <div className="mt-6 max-w-3xl">
           <p className="text-clay font-semibold text-sm tracking-wide uppercase font-sans">
             {city.region} | {city.county} County
           </p>
-          <h1 className="mt-3 text-4xl sm:text-5xl font-bold tracking-tight">
+          <h1 className="mt-3 text-4xl sm:text-5xl font-bold tracking-tight text-bone">
             Contractors in {city.name}, Texas
           </h1>
-          <p className="mt-6 text-lg text-stone leading-relaxed">
+          <p className="mt-6 text-lg text-bone/80 leading-relaxed max-w-2xl">
             Lone Star Contracting Group delivers every major trade in{" "}
             {city.name} through a vetted network of local professionals. One
             call, one point of contact, and crews that know {city.county}{" "}
@@ -92,83 +97,105 @@ export default async function CityHub({
             </Button>
           </div>
         </div>
-      </Section>
+      </PageHero>
 
-      {/* Local conditions */}
+      {/* Local conditions -- image-led split */}
+      <SplitImageSection
+        image={city.heroImage}
+        imageAlt={`Construction conditions in ${city.name}, Texas`}
+        imagePosition="right"
+        bg="white"
+      >
+        <h2 className="text-2xl font-semibold tracking-tight">
+          What Makes {city.name} Different
+        </h2>
+        <p className="mt-4 text-stone leading-relaxed">
+          {city.tradeConsiderations}
+        </p>
+        <p className="mt-4 text-stone leading-relaxed">
+          {city.growthNotes}
+        </p>
+      </SplitImageSection>
+
+      {/* Climate and ground conditions -- text-led */}
       <Section bg="light">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
           <div>
-            <h2 className="text-2xl font-semibold tracking-tight">
-              What Makes {city.name} Different
-            </h2>
-            <p className="mt-4 text-stone leading-relaxed">
-              {city.tradeConsiderations}
-            </p>
-            <p className="mt-4 text-stone leading-relaxed">
-              {city.growthNotes}
-            </p>
+            <h3 className="text-sm font-semibold text-slate uppercase tracking-wide font-sans">
+              Climate and Weather Hazards
+            </h3>
+            <ul className="mt-4 space-y-2.5">
+              {city.climateHazards.map((hazard) => (
+                <li
+                  key={hazard}
+                  className="flex items-start gap-2.5 text-sm text-stone"
+                >
+                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-clay/60 shrink-0" />
+                  {hazard}
+                </li>
+              ))}
+            </ul>
           </div>
-          <div className="space-y-6">
-            <div>
-              <h3 className="text-sm font-semibold text-slate uppercase tracking-wide font-sans">
-                Climate and Weather Hazards
-              </h3>
-              <ul className="mt-3 space-y-2">
-                {city.climateHazards.map((hazard) => (
-                  <li
-                    key={hazard}
-                    className="flex items-start gap-2 text-sm text-stone"
-                  >
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-clay/60 shrink-0" />
-                    {hazard}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-sm font-semibold text-slate uppercase tracking-wide font-sans">
-                Ground Conditions
-              </h3>
-              <ul className="mt-3 space-y-2">
-                {city.groundConditions.map((condition) => (
-                  <li
-                    key={condition}
-                    className="flex items-start gap-2 text-sm text-stone"
-                  >
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-clay/60 shrink-0" />
-                    {condition}
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div>
+            <h3 className="text-sm font-semibold text-slate uppercase tracking-wide font-sans">
+              Ground Conditions
+            </h3>
+            <ul className="mt-4 space-y-2.5">
+              {city.groundConditions.map((condition) => (
+                <li
+                  key={condition}
+                  className="flex items-start gap-2.5 text-sm text-stone"
+                >
+                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-clay/60 shrink-0" />
+                  {condition}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </Section>
 
-      {/* Services grid */}
+      {/* Hairline divider */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <hr className="border-stone/10" />
+      </div>
+
+      {/* Services grid with images */}
       <Section bg="white">
         <SectionHeader
           title={`Services in ${city.name}`}
           subtitle="Select a service to see local details, conditions, and how we handle it in your area."
         />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {priorityServices.map((service) => (
             <Link
               key={service.id}
               href={`/texas/${city.id}/${service.id}`}
-              className="group rounded-lg border border-stone/15 p-5 hover:border-clay/30 hover:shadow-sm transition-all"
+              className="group rounded-lg overflow-hidden border border-stone/15 hover:border-clay/30 hover:shadow-sm transition-all bg-white"
             >
-              <h3 className="text-base font-semibold text-slate group-hover:text-clay transition-colors font-serif">
-                {service.name}
-              </h3>
-              <p className="mt-1.5 text-sm text-stone">
-                {service.name} in {city.name}, TX
-              </p>
-              {service.licensed && (
-                <span className="mt-2 inline-block text-xs font-medium text-clay/80">
-                  Licensed trade
-                </span>
-              )}
+              <div className="relative h-36 overflow-hidden">
+                <Image
+                  src={service.image}
+                  alt={`${service.name} in ${city.name}`}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-slate/10" aria-hidden="true" />
+              </div>
+              <div className="p-4">
+                <h3 className="text-base font-semibold text-slate group-hover:text-clay transition-colors font-serif">
+                  {service.name}
+                </h3>
+                <p className="mt-1 text-sm text-stone">
+                  {service.name} in {city.name}, TX
+                </p>
+                {service.licensed && (
+                  <span className="mt-2 inline-block text-xs font-medium text-clay/80">
+                    Licensed trade
+                  </span>
+                )}
+              </div>
             </Link>
           ))}
         </div>
@@ -187,39 +214,37 @@ export default async function CityHub({
         </div>
       </Section>
 
-      {/* Property types */}
+      {/* Property types and local references -- asymmetric two-column */}
       <Section bg="bone">
-        <div className="max-w-3xl">
-          <h2 className="text-2xl font-semibold tracking-tight">
-            Property Types in {city.name}
-          </h2>
-          <div className="mt-6 flex flex-wrap gap-2">
-            {city.dominantPropertyTypes.map((type) => (
-              <span
-                key={type}
-                className="rounded-full border border-stone/15 bg-white px-4 py-2 text-sm text-stone"
-              >
-                {type}
-              </span>
-            ))}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div>
+            <h2 className="text-2xl font-semibold tracking-tight">
+              Property Types in {city.name}
+            </h2>
+            <div className="mt-6 flex flex-wrap gap-2">
+              {city.dominantPropertyTypes.map((type) => (
+                <span
+                  key={type}
+                  className="rounded-full border border-stone/15 bg-white px-4 py-2 text-sm text-stone"
+                >
+                  {type}
+                </span>
+              ))}
+            </div>
           </div>
-        </div>
-      </Section>
-
-      {/* Local references */}
-      <Section bg="white">
-        <div className="max-w-3xl">
-          <h2 className="text-2xl font-semibold tracking-tight">
-            Areas We Serve in {city.name}
-          </h2>
-          <p className="mt-4 text-stone leading-relaxed">
-            Our network of professionals covers all of {city.name} and the
-            surrounding {city.county} County area, including neighborhoods
-            and districts near{" "}
-            {city.localReferences.slice(0, -1).join(", ")}
-            {city.localReferences.length > 1 ? ", and " : ""}
-            {city.localReferences[city.localReferences.length - 1]}.
-          </p>
+          <div>
+            <h2 className="text-2xl font-semibold tracking-tight">
+              Areas We Serve in {city.name}
+            </h2>
+            <p className="mt-4 text-stone leading-relaxed">
+              Our network of professionals covers all of {city.name} and the
+              surrounding {city.county} County area, including neighborhoods
+              and districts near{" "}
+              {city.localReferences.slice(0, -1).join(", ")}
+              {city.localReferences.length > 1 ? ", and " : ""}
+              {city.localReferences[city.localReferences.length - 1]}.
+            </p>
+          </div>
         </div>
       </Section>
 

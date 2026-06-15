@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { services, getServiceById, getServicesByCategory } from "@/data/services";
 import { getTier1Cities } from "@/data/cities";
 import { Section, SectionHeader } from "@/components/Section";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Button, CTABanner } from "@/components/CTA";
+import { PageHero, SplitImageSection } from "@/components/PageHero";
 import { SITE_URL, SITE_NAME } from "@/lib/constants";
 
 export function generateStaticParams() {
@@ -74,7 +76,11 @@ export default async function ServicePage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
 
-      <Section bg="white">
+      {/* Hero with service photo */}
+      <PageHero
+        image={service.image}
+        imageAlt={`${service.name} services by Lone Star Contracting in Texas`}
+      >
         <Breadcrumbs
           items={[
             { label: "Services", href: "/services" },
@@ -82,18 +88,18 @@ export default async function ServicePage({
           ]}
         />
 
-        <div className="mt-8 max-w-3xl">
+        <div className="mt-6 max-w-3xl">
           <p className="text-clay font-semibold text-sm tracking-wide uppercase font-sans">
             {service.category}
           </p>
-          <h1 className="mt-3 text-4xl sm:text-5xl font-bold tracking-tight">
+          <h1 className="mt-3 text-4xl sm:text-5xl font-bold tracking-tight text-bone">
             {service.name}
           </h1>
-          <p className="mt-6 text-lg text-stone leading-relaxed">
+          <p className="mt-6 text-lg text-bone/80 leading-relaxed max-w-2xl">
             {service.description} {service.customerAngle}
           </p>
           {service.licensed && service.licenseNote && (
-            <p className="mt-4 text-sm text-stone/80 border-l-2 border-clay/30 pl-4">
+            <p className="mt-4 text-sm text-bone/60 border-l-2 border-clay/50 pl-4">
               {service.licenseNote}
             </p>
           )}
@@ -103,10 +109,10 @@ export default async function ServicePage({
             </Button>
           </div>
         </div>
-      </Section>
+      </PageHero>
 
       {/* Sub-services */}
-      <Section bg="light">
+      <Section bg="white">
         <SectionHeader
           title={`${service.name} Services`}
           subtitle={`Every aspect of ${service.name.toLowerCase()} handled through one contractor, one point of contact.`}
@@ -116,7 +122,7 @@ export default async function ServicePage({
           {service.subServices.map((sub) => (
             <div
               key={sub}
-              className="rounded-lg border border-stone/10 bg-white p-4"
+              className="rounded-lg border border-stone/10 bg-stone/5 p-4"
             >
               <p className="text-sm font-medium text-slate">{sub}</p>
             </div>
@@ -124,48 +130,56 @@ export default async function ServicePage({
         </div>
       </Section>
 
-      {/* Why Lone Star for this service */}
-      <Section bg="white">
-        <div className="max-w-3xl">
-          <h2 className="text-3xl font-semibold tracking-tight">
-            Why Choose Lone Star for {service.name}
-          </h2>
-          <div className="mt-6 space-y-4 text-stone leading-relaxed">
+      {/* Why Lone Star -- image-led split */}
+      <SplitImageSection
+        image={service.image}
+        imageAlt={`Professional ${service.name.toLowerCase()} work in Texas`}
+        imagePosition="right"
+        bg="light"
+      >
+        <h2 className="text-3xl font-semibold tracking-tight">
+          Why Choose Lone Star for {service.name}
+        </h2>
+        <div className="mt-6 space-y-4 text-stone leading-relaxed">
+          <p>
+            Finding the right contractor for {service.name.toLowerCase()} in
+            Texas means navigating a fragmented market of solo operators,
+            overbooked crews, and companies that disappear between the
+            estimate and the start date. That is the gap Lone Star
+            Contracting Group fills.
+          </p>
+          <p>
+            We do not subcontract blindly. Every professional in our network
+            is vetted for the specific trade they perform. When your{" "}
+            {service.name.toLowerCase()} project comes in, we match it to a
+            crew with documented experience in that exact scope, in your
+            market, with the capacity to start on your timeline.
+          </p>
+          {service.licensed && (
             <p>
-              Finding the right contractor for {service.name.toLowerCase()} in
-              Texas means navigating a fragmented market of solo operators,
-              overbooked crews, and companies that disappear between the
-              estimate and the start date. That is the gap Lone Star
-              Contracting Group fills.
+              As a licensed trade in Texas,{" "}
+              {service.name.toLowerCase()} work requires proper state
+              licensing. Every {service.name.toLowerCase()} professional in
+              our network holds their own license and is responsible for
+              pulling the required permits. We verify licensing status before
+              any assignment.
             </p>
-            <p>
-              We do not subcontract blindly. Every professional in our network
-              is vetted for the specific trade they perform. When your{" "}
-              {service.name.toLowerCase()} project comes in, we match it to a
-              crew with documented experience in that exact scope, in your
-              market, with the capacity to start on your timeline.
-            </p>
-            {service.licensed && (
-              <p>
-                As a licensed trade in Texas,{" "}
-                {service.name.toLowerCase()} work requires proper state
-                licensing. Every {service.name.toLowerCase()} professional in
-                our network holds their own license and is responsible for
-                pulling the required permits. We verify licensing status before
-                any assignment.
-              </p>
-            )}
-            <p>
-              You get one point of contact from estimate through completion.
-              We manage the schedule, handle the communication, and verify the
-              work before the job closes.
-            </p>
-          </div>
+          )}
+          <p>
+            You get one point of contact from estimate through completion.
+            We manage the schedule, handle the communication, and verify the
+            work before the job closes.
+          </p>
         </div>
-      </Section>
+      </SplitImageSection>
+
+      {/* Hairline divider */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <hr className="border-stone/10" />
+      </div>
 
       {/* Service Areas */}
-      <Section bg="bone">
+      <Section bg="white">
         <SectionHeader
           title={`${service.name} Across Texas`}
           subtitle={`We deliver ${service.name.toLowerCase()} in every major Texas metro. Select your city for local details.`}
@@ -185,7 +199,7 @@ export default async function ServicePage({
 
       {/* Related Services */}
       {relatedServices.length > 0 && (
-        <Section bg="white">
+        <Section bg="bone">
           <SectionHeader
             title="Related Services"
             subtitle={`Other ${service.category.toLowerCase()} services we deliver across Texas.`}
@@ -195,14 +209,26 @@ export default async function ServicePage({
               <Link
                 key={related.id}
                 href={`/services/${related.id}`}
-                className="group rounded-lg border border-stone/15 p-5 hover:border-clay/30 transition-all"
+                className="group rounded-lg overflow-hidden border border-stone/15 hover:border-clay/30 transition-all bg-white"
               >
-                <h3 className="text-base font-semibold text-slate group-hover:text-clay transition-colors font-serif">
-                  {related.name}
-                </h3>
-                <p className="mt-1.5 text-sm text-stone">
-                  {related.description}
-                </p>
+                <div className="relative h-36 overflow-hidden">
+                  <Image
+                    src={related.image}
+                    alt={`${related.name} services`}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    sizes="(max-width: 640px) 100vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-slate/10" aria-hidden="true" />
+                </div>
+                <div className="p-4">
+                  <h3 className="text-base font-semibold text-slate group-hover:text-clay transition-colors font-serif">
+                    {related.name}
+                  </h3>
+                  <p className="mt-1.5 text-sm text-stone">
+                    {related.description}
+                  </p>
+                </div>
               </Link>
             ))}
           </div>

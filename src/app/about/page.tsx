@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Section, SectionHeader } from "@/components/Section";
 import { Button, CTABanner } from "@/components/CTA";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { PageHero, SplitImageSection, PhotoBand } from "@/components/PageHero";
 import { SITE_NAME } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -13,25 +14,33 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      {/* Breadcrumbs */}
-      <Section bg="bone" className="!py-6">
+      {/* Hero */}
+      <PageHero
+        image="/images/lone-star-crew-at-work.jpg"
+        imageAlt="Lone Star Contracting crew collaborating on a Texas jobsite"
+      >
         <Breadcrumbs items={[{ label: "About", href: "/about" }]} />
-      </Section>
-
-      {/* Hero / Mission */}
-      <Section bg="white">
-        <div className="max-w-3xl">
+        <div className="mt-6 max-w-3xl">
           <p className="text-clay font-semibold text-sm tracking-wide uppercase font-sans">
             Who We Are
           </p>
-          <h1 className="mt-4 text-4xl sm:text-5xl font-bold tracking-tight leading-[1.1]">
+          <h1 className="mt-4 text-4xl sm:text-5xl font-bold tracking-tight text-bone leading-[1.1]">
             One Company. Every Trade. All of Texas.
           </h1>
-          <p className="mt-6 text-lg text-stone leading-relaxed">
+          <p className="mt-6 text-lg text-bone/80 leading-relaxed">
             Lone Star Contracting Group exists to solve a straightforward
             problem: getting quality trade work done across a state as large as
             Texas should not require a property owner to become a general
-            contractor themselves. We are a single point of contact for
+            contractor themselves.
+          </p>
+        </div>
+      </PageHero>
+
+      {/* Mission -- text-led centered */}
+      <Section bg="white">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-lg text-stone leading-relaxed">
+            We are a single point of contact for
             commercial and residential contracting, backed by a vetted network of
             professionals who do the actual trade work.
           </p>
@@ -45,13 +54,19 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      {/* How the Model Works */}
-      <Section bg="light">
+      {/* How the Model Works -- image-led split */}
+      <SplitImageSection
+        image="/images/lone-star-project-planning.jpg"
+        imageAlt="Construction professionals reviewing project plans"
+        imagePosition="right"
+        bg="light"
+      >
         <SectionHeader
           title="How the Model Works"
           subtitle="We are not a marketplace and we are not a staffing agency. We are a contracting company that operates through a network."
+          centered={false}
         />
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <div className="space-y-8">
           <div>
             <h3 className="text-xl font-semibold text-slate font-serif">
               We Control the Job
@@ -59,10 +74,7 @@ export default function AboutPage() {
             <p className="mt-3 text-stone leading-relaxed">
               Every project runs through us. We own the customer relationship,
               scope the work, set expectations, and manage communication from
-              first contact through completion. The professionals in our network
-              execute the trade work, but the accountability sits with Lone Star
-              Contracting Group. If something goes sideways, you call us. Not
-              a subcontractor you have never met.
+              first contact through completion. If something goes sideways, you call us.
             </p>
           </div>
           <div>
@@ -71,16 +83,19 @@ export default function AboutPage() {
             </h3>
             <p className="mt-3 text-stone leading-relaxed">
               Texas is too big and the trades are too specialized for any single
-              crew to cover everything well. Instead of pretending we can do it
-              all in-house, we built a network of trade-specific professionals
-              across every region of the state. Each one is vetted for
-              competency, licensing where required, and insurance. When a job
-              comes in, we match it to the right people based on trade, scope,
-              and location.
+              crew to cover everything well. We built a network of trade-specific professionals
+              across every region of the state, each vetted for
+              competency, licensing where required, and insurance.
             </p>
           </div>
         </div>
-      </Section>
+      </SplitImageSection>
+
+      {/* Full-bleed photo band */}
+      <PhotoBand
+        image="/images/lone-star-construction-site.jpg"
+        imageAlt="Construction site in Texas"
+      />
 
       {/* Why This Model Exists */}
       <Section bg="bone">
@@ -88,8 +103,8 @@ export default function AboutPage() {
           title="Why This Model Exists"
           centered={false}
         />
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div className="rounded-xl border border-stone/15 p-8 sm:p-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="rounded-xl border border-stone/15 bg-white p-8 sm:p-10">
             <p className="text-clay font-semibold text-sm tracking-wide uppercase font-sans">
               For Customers
             </p>
@@ -107,12 +122,11 @@ export default function AboutPage() {
             <p className="mt-3 text-stone leading-relaxed">
               We take that off your plate. You tell us what needs to happen, and
               we figure out the rest. One contract, one schedule, one point of
-              accountability. If a callback is needed, you do not have to track
-              down the crew. You call us, and we handle it.
+              accountability.
             </p>
           </div>
 
-          <div className="rounded-xl border border-stone/15 p-8 sm:p-10">
+          <div className="rounded-xl border border-stone/15 bg-white p-8 sm:p-10">
             <p className="text-clay font-semibold text-sm tracking-wide uppercase font-sans">
               For Subcontractors
             </p>
@@ -123,9 +137,7 @@ export default function AboutPage() {
               Good tradespeople are not always good at sales, marketing, or
               managing customer expectations. That is not a knock. It is just a
               different skill set. Most subcontractors want steady work, clear
-              scopes, and timely payment. They do not want to spend half their
-              week chasing leads, writing proposals, and fielding calls from
-              customers who want to renegotiate after the work is done.
+              scopes, and timely payment.
             </p>
             <p className="mt-3 text-stone leading-relaxed">
               Our network gives skilled professionals a pipeline of matched
@@ -144,27 +156,25 @@ export default function AboutPage() {
             title="What We Are Not"
             subtitle="There are a lot of platforms and services that connect people with contractors. We are not one of them."
           />
-          <div className="space-y-8">
-            <div>
+          <div className="space-y-6">
+            <div className="border-b border-stone/10 pb-6">
               <h3 className="text-lg font-semibold text-slate font-serif">
                 Not a Lead Gen Platform
               </h3>
               <p className="mt-2 text-stone leading-relaxed">
                 We do not sell your information to five contractors and let them
                 fight over the job. When you contact us, you are talking to
-                the company that will be responsible for the work. Your project
-                is not a lead. It is a job.
+                the company that will be responsible for the work.
               </p>
             </div>
-            <div>
+            <div className="border-b border-stone/10 pb-6">
               <h3 className="text-lg font-semibold text-slate font-serif">
                 Not a Marketplace
               </h3>
               <p className="mt-2 text-stone leading-relaxed">
                 We do not list contractors and let you sort through profiles,
-                reviews, and availability. There is no bidding war. We select
-                the right professional for the job based on trade competency,
-                licensing, location, and availability. You do not shop. You get
+                reviews, and availability. We select
+                the right professional for the job. You do not shop. You get
                 matched.
               </p>
             </div>
@@ -173,9 +183,7 @@ export default function AboutPage() {
                 Not a Referral Service
               </h3>
               <p className="mt-2 text-stone leading-relaxed">
-                A referral service hands you a name and walks away. If the
-                contractor does poor work or disappears mid-project, the
-                referral service has no skin in the game. We own the job. If
+                A referral service hands you a name and walks away. We own the job. If
                 something is not right, it is our problem to fix, not yours
                 to chase.
               </p>
@@ -208,8 +216,7 @@ export default function AboutPage() {
             <p className="mt-2 text-sm text-stone leading-relaxed">
               Every job is matched to professionals who specialize in that
               specific trade. A foundation repair job goes to foundation
-              specialists, not a general handyman. A commercial roofing project
-              goes to commercial roofers, not a residential crew.
+              specialists, not a general handyman.
             </p>
           </div>
           <div className="rounded-lg bg-white p-6 border border-stone/10">
@@ -219,8 +226,7 @@ export default function AboutPage() {
             <p className="mt-2 text-sm text-stone leading-relaxed">
               Plumbing, electrical, HVAC, and irrigation work in Texas requires
               specific licenses. Those trades are delivered by licensed
-              professionals in our network who hold the appropriate credentials
-              and pull the required permits.
+              professionals who hold the appropriate credentials.
             </p>
           </div>
           <div className="rounded-lg bg-white p-6 border border-stone/10">
@@ -229,7 +235,7 @@ export default function AboutPage() {
             </h3>
             <p className="mt-2 text-sm text-stone leading-relaxed">
               You deal with Lone Star Contracting Group. Not a rotating cast of
-              subcontractors who may or may not return your calls. One company,
+              subcontractors. One company,
               one contact, one line of responsibility from start to finish.
             </p>
           </div>

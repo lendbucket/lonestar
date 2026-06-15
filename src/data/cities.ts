@@ -29,6 +29,7 @@ export interface City {
   localReferences: string[];
   neighborCityIds: string[];
   tradeConsiderations: string;
+  heroImage: string;
 }
 
 // ---------------------------------------------------------------------------
@@ -82,6 +83,7 @@ export const cities: City[] = [
     ],
     tradeConsiderations:
       "Contracting in Houston requires constant attention to moisture management, from vapor barriers and drainage systems to mold-resistant materials. The expansive clay soils demand engineered foundations, typically post-tensioned slabs, and proper site drainage to prevent differential settlement. Hurricane season drives demand for wind-rated roofing, impact-resistant windows, and reinforced framing in coastal zones. Contractors must also account for the city's strict floodplain regulations and the growing adoption of elevated construction standards following major flood events.",
+    heroImage: "/images/lone-star-houston-skyline.jpg",
   },
 
   // 2. San Antonio
@@ -128,6 +130,7 @@ export const cities: City[] = [
     ],
     tradeConsiderations:
       "San Antonio sits on the Balcones Escarpment where the coastal plain meets the Hill Country, creating a split between clay soils to the east and limestone bedrock to the west. Excavation on the west and north sides frequently requires rock trenching or blasting, adding cost and time to foundation, plumbing, and utility work. The city enforces Edwards Aquifer protection regulations that affect stormwater management, impervious cover limits, and construction site runoff controls in the recharge and contributing zones. Military construction projects follow federal contracting standards and often require security clearances and Davis-Bacon wage compliance.",
+    heroImage: "/images/lone-star-san-antonio-skyline.jpg",
   },
 
   // 3. Dallas
@@ -175,6 +178,7 @@ export const cities: City[] = [
     ],
     tradeConsiderations:
       "The DFW metroplex is the largest construction market in Texas, and Dallas proper presents unique challenges driven by its expansive clay soils. Nearly every residential foundation requires engineered design to account for seasonal soil movement, and post-construction foundation repair is one of the most common service calls in the market. Hail storms generate enormous volumes of roofing and exterior restoration work, making storm damage restoration a significant segment of the local contracting economy. The competitive market demands efficiency and strong relationships with municipal permitting offices across dozens of independent jurisdictions within Dallas County.",
+    heroImage: "/images/lone-star-dallas-skyline.jpg",
   },
 
   // 4. Fort Worth
@@ -221,6 +225,7 @@ export const cities: City[] = [
     ],
     tradeConsiderations:
       "Fort Worth blends urban density in its historic core with rapid greenfield development on its western edge, requiring contractors to be versatile across project types. The Stockyards and downtown areas involve work on historic masonry and brick structures that demand specialized restoration skills and adherence to historic preservation standards. Western expansion into previously undeveloped land means contractors regularly encounter variable soil conditions, from heavy clay to sandy loam to limestone, sometimes within a single subdivision. The Alliance corridor's industrial and logistics construction follows accelerated timelines driven by supply chain demand, and contractors working there benefit from familiarity with tilt-wall, steel frame, and large-format concrete slab construction.",
+    heroImage: "/images/lone-star-fort-worth-skyline.jpg",
   },
 
   // 5. Austin
@@ -270,6 +275,7 @@ export const cities: City[] = [
     ],
     tradeConsiderations:
       "Austin's geology splits sharply along the I-35 corridor, with limestone Hill Country terrain to the west and expansive Blackland Prairie clay to the east, requiring contractors to adapt techniques based on project location. Work in the Edwards Aquifer recharge and contributing zones is subject to strict environmental regulations governing impervious cover, stormwater retention, and construction site best management practices. The city's permitting process has historically been one of the more complex in Texas, with multiple review layers for zoning, environmental, and building compliance. Rapid growth has also created a highly competitive labor market for skilled trades, making workforce availability a key planning factor for project timelines.",
+    heroImage: "/images/lone-star-austin-skyline.jpg",
   },
 
   // 6. El Paso
@@ -312,6 +318,7 @@ export const cities: City[] = [
     neighborCityIds: [],
     tradeConsiderations:
       "El Paso's desert environment demands construction materials and methods suited to extreme heat, intense UV, and very low humidity. Caliche soil is the dominant ground condition and requires heavy equipment or pneumatic tools for excavation, significantly affecting the cost and timeline of foundation, trenching, and utility work. Stucco, masonry, and concrete block are the primary exterior materials, and contractors must account for thermal expansion and UV degradation in material selection and installation. The city's location on the border means many projects involve bilingual crews and coordination with federal agencies on work near the international boundary, and Fort Bliss projects follow military construction standards and procurement processes.",
+    heroImage: "/images/lone-star-el-paso-mountains.jpg",
   },
 
   // 7. Corpus Christi
@@ -357,6 +364,7 @@ export const cities: City[] = [
     ],
     tradeConsiderations:
       "Corpus Christi is located in the Texas Windstorm Insurance Association (TWIA) designated catastrophe area, meaning all construction must meet windstorm certification requirements enforced by the Texas Department of Insurance. Contractors must use approved fasteners, tie-down methods, and wind-rated materials, and completed work is subject to inspection by certified windstorm inspectors before certificates of compliance are issued. Salt air corrosion is a constant concern, requiring the use of stainless steel or hot-dipped galvanized fasteners, marine-grade coatings, and corrosion-resistant flashing and hardware. Industrial work in the refinery and port corridor demands additional safety certifications, confined space training, and compliance with OSHA process safety management standards.",
+    heroImage: "/images/lone-star-corpus-christi-coast.jpg",
   },
 ];
 

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Section, SectionHeader } from "@/components/Section";
 import { Button, CTABanner } from "@/components/CTA";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { PageHero, PhotoBand } from "@/components/PageHero";
 import { SITE_NAME } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -56,62 +57,56 @@ const pillars = [
 export default function MethodPage() {
   return (
     <>
-      {/* Breadcrumbs */}
-      <Section bg="bone" className="!py-6">
-        <Breadcrumbs items={[{ label: "The Lone Star Standard", href: "/method" }]} />
-      </Section>
-
       {/* Hero */}
-      <Section bg="white">
-        <div className="max-w-3xl">
+      <PageHero
+        image="/images/lone-star-quality-inspection.jpg"
+        imageAlt="Quality inspection and verification on a Texas construction project"
+      >
+        <Breadcrumbs items={[{ label: "The Lone Star Standard", href: "/method" }]} />
+        <div className="mt-6 max-w-3xl">
           <p className="text-clay font-semibold text-sm tracking-wide uppercase font-sans">
             Our Method
           </p>
-          <h1 className="mt-4 text-4xl sm:text-5xl font-bold tracking-tight leading-[1.1]">
+          <h1 className="mt-4 text-4xl sm:text-5xl font-bold tracking-tight text-bone leading-[1.1]">
             The Lone Star Standard
           </h1>
-          <p className="mt-6 text-lg text-stone leading-relaxed">
+          <p className="mt-6 text-lg text-bone/80 leading-relaxed">
             The Lone Star Standard is the operating framework behind every
             project we take on. It is not a marketing phrase. It is a set of
             five non-negotiable pillars that govern how we vet professionals,
             match them to work, maintain accountability, and verify completion.
-            Every job, every trade, every time. The Standard exists because
-            consistency in contracting should not be the exception. It should be
-            the baseline.
+            Every job, every trade, every time.
           </p>
         </div>
-      </Section>
+      </PageHero>
 
-      {/* Five Pillars */}
-      <Section bg="light">
-        <SectionHeader
-          title="Five Pillars"
-          subtitle="Each pillar addresses a specific failure point in how contracting typically works. Together, they form a process that keeps work consistent and accountable."
-        />
-        <div className="space-y-16 max-w-4xl mx-auto">
-          {pillars.map((pillar) => (
-            <div
-              key={pillar.number}
-              className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-6 lg:gap-10"
-            >
-              <span className="text-5xl font-bold text-clay/15 font-serif leading-none">
-                {pillar.number}
-              </span>
-              <div>
-                <h3 className="text-2xl font-semibold text-slate font-serif">
-                  {pillar.title}
-                </h3>
-                <p className="mt-3 text-stone leading-relaxed">
-                  {pillar.description}
-                </p>
-                <p className="mt-3 text-stone leading-relaxed">
-                  {pillar.detail}
-                </p>
-              </div>
+      {/* Five Pillars -- alternating layouts */}
+      {pillars.map((pillar, idx) => (
+        <Section key={pillar.number} bg={idx % 2 === 0 ? "white" : "light"}>
+          <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-6 lg:gap-10 max-w-4xl mx-auto">
+            <span className="text-5xl font-bold text-clay/15 font-serif leading-none">
+              {pillar.number}
+            </span>
+            <div>
+              <h3 className="text-2xl font-semibold text-slate font-serif">
+                {pillar.title}
+              </h3>
+              <p className="mt-3 text-stone leading-relaxed">
+                {pillar.description}
+              </p>
+              <p className="mt-3 text-stone leading-relaxed">
+                {pillar.detail}
+              </p>
             </div>
-          ))}
-        </div>
-      </Section>
+          </div>
+        </Section>
+      ))}
+
+      {/* Full-bleed photo band */}
+      <PhotoBand
+        image="/images/lone-star-crew-at-work.jpg"
+        imageAlt="Professional construction crew working on a Texas project"
+      />
 
       {/* Gap and Fix */}
       <Section bg="bone">
@@ -131,29 +126,25 @@ export default function MethodPage() {
               <li className="flex gap-3">
                 <span className="mt-1 h-2 w-2 rounded-full bg-stone/30 shrink-0" />
                 <span className="text-stone leading-relaxed">
-                  Juggling multiple contractors with separate schedules,
-                  contracts, and communication styles
+                  Juggling multiple contractors with separate schedules, contracts, and communication styles
                 </span>
               </li>
               <li className="flex gap-3">
                 <span className="mt-1 h-2 w-2 rounded-full bg-stone/30 shrink-0" />
                 <span className="text-stone leading-relaxed">
-                  No single point of accountability when work falls short or
-                  timelines slip
+                  No single point of accountability when work falls short or timelines slip
                 </span>
               </li>
               <li className="flex gap-3">
                 <span className="mt-1 h-2 w-2 rounded-full bg-stone/30 shrink-0" />
                 <span className="text-stone leading-relaxed">
-                  Hoping the crew that shows up is actually qualified for the
-                  specific trade
+                  Hoping the crew that shows up is actually qualified for the specific trade
                 </span>
               </li>
               <li className="flex gap-3">
                 <span className="mt-1 h-2 w-2 rounded-full bg-stone/30 shrink-0" />
                 <span className="text-stone leading-relaxed">
-                  Chasing callbacks and trying to get someone back on site when
-                  something is not right
+                  Chasing callbacks and trying to get someone back on site
                 </span>
               </li>
               <li className="flex gap-3">
@@ -176,42 +167,47 @@ export default function MethodPage() {
               <li className="flex gap-3">
                 <span className="mt-1 h-2 w-2 rounded-full bg-clay shrink-0" />
                 <span className="text-stone leading-relaxed">
-                  One contact for every trade on the project, regardless of how
-                  many crews are involved
+                  One contact for every trade on the project, regardless of how many crews are involved
                 </span>
               </li>
               <li className="flex gap-3">
                 <span className="mt-1 h-2 w-2 rounded-full bg-clay shrink-0" />
                 <span className="text-stone leading-relaxed">
-                  Clear accountability that does not shift between companies or
-                  people
+                  Clear accountability that does not shift between companies or people
                 </span>
               </li>
               <li className="flex gap-3">
                 <span className="mt-1 h-2 w-2 rounded-full bg-clay shrink-0" />
                 <span className="text-stone leading-relaxed">
-                  Professionals matched to the job by trade, scope, and region,
-                  not by whoever was available
+                  Professionals matched to the job by trade, scope, and region
                 </span>
               </li>
               <li className="flex gap-3">
                 <span className="mt-1 h-2 w-2 rounded-full bg-clay shrink-0" />
                 <span className="text-stone leading-relaxed">
-                  One call to resolve any issue. We handle the coordination with
-                  the crew, not you
+                  One call to resolve any issue. We handle the coordination with the crew, not you
                 </span>
               </li>
               <li className="flex gap-3">
                 <span className="mt-1 h-2 w-2 rounded-full bg-clay shrink-0" />
                 <span className="text-stone leading-relaxed">
-                  Work is verified before the job closes. No ambiguity about
-                  whether it was done right
+                  Work is verified before the job closes. No ambiguity about whether it was done right
                 </span>
               </li>
             </ul>
           </div>
         </div>
       </Section>
+
+      {/* Pull quote */}
+      <section className="bg-slate py-16 sm:py-20">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+          <blockquote className="font-serif text-2xl sm:text-3xl lg:text-4xl font-semibold text-bone leading-snug tracking-tight">
+            The Standard exists because consistency in contracting should not be
+            the exception. It should be the baseline.
+          </blockquote>
+        </div>
+      </section>
 
       {/* Closing Statement */}
       <Section bg="white">
@@ -224,8 +220,7 @@ export default function MethodPage() {
             whether those values are built into the actual operations. The Lone
             Star Standard is not aspirational. It is procedural. Every job
             goes through the same vetting, the same matching, the same
-            accountability structure, and the same verification process. That is
-            what makes it a standard and not a suggestion.
+            accountability structure, and the same verification process.
           </p>
           <div className="mt-8">
             <Button href="/how-it-works" variant="outline">

@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { cities } from "@/data/cities";
 import { Section, SectionHeader } from "@/components/Section";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTABanner } from "@/components/CTA";
+import { PageHero } from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: { absolute: "Texas Service Areas | Lone Star" },
@@ -15,20 +17,23 @@ export const metadata: Metadata = {
 export default function TexasHub() {
   return (
     <>
-      <Section bg="white">
+      <PageHero
+        image="/images/lone-star-houston-skyline.jpg"
+        imageAlt="Texas metro skyline at sunset"
+      >
         <Breadcrumbs items={[{ label: "Texas", href: "/texas" }]} />
-        <div className="mt-8 max-w-3xl">
-          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight">
+        <div className="mt-6 max-w-3xl">
+          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-bone">
             Statewide Texas Coverage
           </h1>
-          <p className="mt-6 text-lg text-stone leading-relaxed">
+          <p className="mt-6 text-lg text-bone/80 leading-relaxed">
             From the Gulf Coast to the Permian Basin, the DFW Metroplex to the
             Rio Grande Valley, Lone Star Contracting Group delivers every major
             trade through a vetted network of local professionals. Select your
             city to see the services and crews available in your market.
           </p>
         </div>
-      </Section>
+      </PageHero>
 
       <Section bg="bone">
         <SectionHeader
@@ -40,20 +45,34 @@ export default function TexasHub() {
             <Link
               key={city.id}
               href={`/texas/${city.id}`}
-              className="group rounded-xl border border-stone/15 bg-white p-6 hover:border-clay/30 hover:shadow-sm transition-all"
+              className="group rounded-xl overflow-hidden border border-stone/15 bg-white hover:border-clay/30 hover:shadow-sm transition-all"
             >
-              <h2 className="text-xl font-semibold text-slate group-hover:text-clay transition-colors font-serif">
-                {city.name}
-              </h2>
-              <p className="mt-1 text-sm text-stone/70">
-                {city.county} County | {city.region}
-              </p>
-              <p className="mt-3 text-sm text-stone leading-relaxed">
-                {city.tradeConsiderations.split(".").slice(0, 2).join(".")}.
-              </p>
-              <span className="mt-3 inline-block text-sm font-medium text-clay">
-                View services in {city.name}
-              </span>
+              <div className="relative h-44 overflow-hidden">
+                <Image
+                  src={city.heroImage}
+                  alt={`${city.name}, Texas skyline`}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate/60 to-transparent" aria-hidden="true" />
+                <div className="absolute bottom-3 left-4">
+                  <h2 className="text-xl font-semibold text-bone font-serif drop-shadow-sm">
+                    {city.name}
+                  </h2>
+                  <p className="text-xs text-bone/70">
+                    {city.county} County | {city.region}
+                  </p>
+                </div>
+              </div>
+              <div className="p-5">
+                <p className="text-sm text-stone leading-relaxed">
+                  {city.tradeConsiderations.split(".").slice(0, 2).join(".")}.
+                </p>
+                <span className="mt-3 inline-block text-sm font-medium text-clay">
+                  View services in {city.name}
+                </span>
+              </div>
             </Link>
           ))}
         </div>

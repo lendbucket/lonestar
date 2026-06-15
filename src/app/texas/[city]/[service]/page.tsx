@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { cities, getCityById, type City } from "@/data/cities";
 import {
   getServiceById,
@@ -12,6 +13,7 @@ import {
 import { Section } from "@/components/Section";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Button, CTABanner } from "@/components/CTA";
+import { PageHero, SplitImageSection } from "@/components/PageHero";
 import { SITE_URL, SITE_NAME, CONTACT_EMAIL } from "@/lib/constants";
 
 export function generateStaticParams() {
@@ -330,8 +332,11 @@ export default async function ServiceCityLeaf({
         }}
       />
 
-      {/* Hero with localized intro */}
-      <Section bg="white">
+      {/* Hero with service photo */}
+      <PageHero
+        image={service.image}
+        imageAlt={`${service.name} services in ${city.name}, Texas`}
+      >
         <Breadcrumbs
           items={[
             { label: "Texas", href: "/texas" },
@@ -342,15 +347,14 @@ export default async function ServiceCityLeaf({
             },
           ]}
         />
-
-        <div className="mt-8 max-w-3xl">
+        <div className="mt-6 max-w-3xl">
           <p className="text-clay font-semibold text-sm tracking-wide uppercase font-sans">
             {city.name}, TX | {city.region}
           </p>
-          <h1 className="mt-3 text-4xl sm:text-5xl font-bold tracking-tight">
+          <h1 className="mt-3 text-4xl sm:text-5xl font-bold tracking-tight text-bone">
             {service.name} in {city.name}, Texas
           </h1>
-          <p className="mt-6 text-lg text-stone leading-relaxed">
+          <p className="mt-6 text-lg text-bone/80 leading-relaxed max-w-2xl">
             {getLocalizedIntro(service, city)} Lone Star Contracting Group
             connects your project to vetted{" "}
             {service.name.toLowerCase()} professionals in the{" "}
@@ -359,7 +363,7 @@ export default async function ServiceCityLeaf({
             contact.
           </p>
           {service.licensed && service.licenseNote && (
-            <p className="mt-4 text-sm text-stone/80 border-l-2 border-clay/30 pl-4">
+            <p className="mt-4 text-sm text-bone/60 border-l-2 border-clay/50 pl-4">
               {service.licenseNote}
             </p>
           )}
@@ -371,37 +375,45 @@ export default async function ServiceCityLeaf({
               href={`/services/${service.id}`}
               variant="outline"
               size="lg"
+              className="border-bone/40 text-bone hover:bg-bone hover:text-slate"
             >
               About {service.name}
             </Button>
           </div>
         </div>
-      </Section>
+      </PageHero>
 
-      {/* Local conditions for this service */}
+      {/* Local conditions -- image-led split section */}
+      <SplitImageSection
+        image={city.heroImage}
+        imageAlt={`${city.name}, Texas construction conditions`}
+        imagePosition="right"
+        bg="white"
+      >
+        <h2 className="text-2xl font-semibold tracking-tight">
+          {service.name} Conditions in {city.name}
+        </h2>
+        <p className="mt-4 text-stone leading-relaxed">
+          {getServiceByCityParagraph(service, city)}
+        </p>
+        <p className="mt-4 text-stone leading-relaxed">
+          {city.tradeConsiderations}
+        </p>
+      </SplitImageSection>
+
+      {/* Climate and ground conditions list */}
       <Section bg="light">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-          <div>
-            <h2 className="text-2xl font-semibold tracking-tight">
-              {service.name} Conditions in {city.name}
-            </h2>
-            <p className="mt-4 text-stone leading-relaxed">
-              {getServiceByCityParagraph(service, city)}
-            </p>
-            <p className="mt-4 text-stone leading-relaxed">
-              {city.tradeConsiderations}
-            </p>
-          </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
           <div>
             <h3 className="text-sm font-semibold text-slate uppercase tracking-wide font-sans">
               {city.name} Conditions Affecting {service.name}
             </h3>
-            <ul className="mt-4 space-y-2">
+            <ul className="mt-4 space-y-2.5">
               {[...city.climateHazards.slice(0, 3), ...city.groundConditions.slice(0, 2)].map(
                 (item) => (
                   <li
                     key={item}
-                    className="flex items-start gap-2 text-sm text-stone"
+                    className="flex items-start gap-2.5 text-sm text-stone"
                   >
                     <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-clay/60 shrink-0" />
                     {item}
@@ -409,6 +421,18 @@ export default async function ServiceCityLeaf({
                 )
               )}
             </ul>
+          </div>
+          <div className="flex items-center justify-center">
+            <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden">
+              <Image
+                src={service.image}
+                alt={`${service.name} work in ${city.name}`}
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-slate/10" aria-hidden="true" />
+            </div>
           </div>
         </div>
       </Section>

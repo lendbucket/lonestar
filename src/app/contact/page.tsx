@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Section, SectionHeader } from "@/components/Section";
 import { Button } from "@/components/CTA";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { PageHero } from "@/components/PageHero";
 import { SITE_NAME, CONTACT_EMAIL } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -13,19 +14,21 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <Section bg="bone">
+      <PageHero
+        image="/images/lone-star-project-planning.jpg"
+        imageAlt="Lone Star Contracting Group professionals ready to help"
+      >
         <Breadcrumbs items={[{ label: "Contact", href: "/contact" }]} />
-
-        <div className="mt-8 max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-slate">
+        <div className="mt-6 max-w-3xl mx-auto text-center">
+          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-bone">
             Get in Touch
           </h1>
-          <p className="mt-6 text-lg text-stone leading-relaxed">
+          <p className="mt-6 text-lg text-bone/80 leading-relaxed">
             Whether you have a project that needs a crew or you are a
             professional looking to join our network, we want to hear from you.
           </p>
         </div>
-      </Section>
+      </PageHero>
 
       <Section bg="white">
         <div className="max-w-2xl mx-auto text-center">
@@ -73,7 +76,7 @@ export default function ContactPage() {
                 <span>Any relevant details, photos, or deadlines</span>
               </li>
             </ul>
-            <div className="mt-8">
+            <div className="mt-8 text-center">
               <Button href={`mailto:${CONTACT_EMAIL}`} variant="primary">
                 Email Your Project Details
               </Button>
@@ -106,7 +109,7 @@ export default function ContactPage() {
                 <span>License and insurance information</span>
               </li>
             </ul>
-            <div className="mt-8">
+            <div className="mt-8 text-center">
               <Button href={`mailto:${CONTACT_EMAIL}`} variant="secondary">
                 Email Your Information
               </Button>

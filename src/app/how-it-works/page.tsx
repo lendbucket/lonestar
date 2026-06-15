@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Section, SectionHeader } from "@/components/Section";
 import { Button, CTABanner } from "@/components/CTA";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { PageHero, SplitImageSection } from "@/components/PageHero";
 import { SITE_NAME } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -13,69 +14,75 @@ export const metadata: Metadata = {
 export default function HowItWorksPage() {
   return (
     <>
-      {/* Breadcrumbs */}
-      <Section bg="bone" className="!py-6">
-        <Breadcrumbs items={[{ label: "How It Works", href: "/how-it-works" }]} />
-      </Section>
-
       {/* Hero */}
-      <Section bg="white">
-        <div className="max-w-3xl">
+      <PageHero
+        image="/images/lone-star-project-planning.jpg"
+        imageAlt="Construction professionals reviewing blueprints and project plans"
+      >
+        <Breadcrumbs items={[{ label: "How It Works", href: "/how-it-works" }]} />
+        <div className="mt-6 max-w-3xl">
           <p className="text-clay font-semibold text-sm tracking-wide uppercase font-sans">
             The Process
           </p>
-          <h1 className="mt-4 text-4xl sm:text-5xl font-bold tracking-tight leading-[1.1]">
+          <h1 className="mt-4 text-4xl sm:text-5xl font-bold tracking-tight text-bone leading-[1.1]">
             How It Works
           </h1>
-          <p className="mt-6 text-lg text-stone leading-relaxed">
+          <p className="mt-6 text-lg text-bone/80 leading-relaxed">
             We built this process to eliminate the most common frustrations in
             contracting: unclear scopes, mismatched crews, communication gaps,
             and jobs that close before the work is actually done right. Every
-            project follows the same four steps, whether it is a single-trade
-            residential repair or a multi-scope commercial build-out.
+            project follows the same four steps.
           </p>
         </div>
-      </Section>
+      </PageHero>
 
-      {/* Step 1 */}
-      <Section bg="light">
-        <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-6 lg:gap-12 max-w-5xl mx-auto">
-          <div className="flex items-start">
-            <span className="text-6xl sm:text-7xl font-bold text-clay/15 font-serif leading-none">
-              01
-            </span>
-          </div>
-          <div>
-            <p className="text-clay font-semibold text-sm tracking-wide uppercase font-sans">
-              Step One
-            </p>
-            <h2 className="mt-2 text-3xl sm:text-4xl font-semibold tracking-tight">
-              Submit Your Project
-            </h2>
-            <p className="mt-4 text-stone leading-relaxed">
-              Everything starts with your project details. You can reach us
-              through our online intake form, by phone, or by email. We ask
-              specific questions upfront: What type of work do you need? Where is
-              the property? What is the scope? Is this commercial or residential?
-              Are there any time constraints?
-            </p>
-            <p className="mt-3 text-stone leading-relaxed">
-              We ask these questions early because vague scopes lead to bad
-              estimates, wrong crews, and wasted time. The more detail you can
-              provide at intake, the faster and more accurately we can match your
-              project. Photos, measurements, and any existing documentation are
-              always helpful.
-            </p>
-            <p className="mt-3 text-stone leading-relaxed">
-              If you are not sure exactly what you need, that is fine too. Tell
-              us the problem and we will help you define the scope during the
-              review step.
-            </p>
-          </div>
+      {/* Stat callout */}
+      <section className="bg-slate">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-10 text-center">
+          <p className="font-serif text-5xl sm:text-6xl font-bold text-clay">4</p>
+          <p className="mt-2 text-bone/60 font-sans">Steps from first call to verified completion</p>
         </div>
-      </Section>
+      </section>
 
-      {/* Step 2 */}
+      {/* Step 1 -- image-led split */}
+      <SplitImageSection
+        image="/images/lone-star-texas-construction-crew.jpg"
+        imageAlt="Client discussing project requirements with Lone Star team"
+        imagePosition="right"
+        bg="white"
+      >
+        <p className="text-clay font-semibold text-sm tracking-wide uppercase font-sans">
+          Step One
+        </p>
+        <h2 className="mt-2 text-3xl sm:text-4xl font-semibold tracking-tight">
+          Submit Your Project
+        </h2>
+        <p className="mt-4 text-stone leading-relaxed">
+          Everything starts with your project details. You can reach us
+          through our online intake form, by phone, or by email. We ask
+          specific questions upfront: What type of work do you need? Where is
+          the property? What is the scope? Is this commercial or residential?
+          Are there any time constraints?
+        </p>
+        <p className="mt-3 text-stone leading-relaxed">
+          We ask these questions early because vague scopes lead to bad
+          estimates, wrong crews, and wasted time. The more detail you can
+          provide at intake, the faster and more accurately we can match your
+          project.
+        </p>
+        <p className="mt-3 text-stone leading-relaxed">
+          If you are not sure exactly what you need, that is fine too. Tell
+          us the problem and we will help you define the scope during the
+          review step.
+        </p>
+      </SplitImageSection>
+
+      {/* Hairline */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <hr className="border-stone/10" />
+      </div>
+
+      {/* Step 2 -- text-led */}
       <Section bg="white">
         <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-6 lg:gap-12 max-w-5xl mx-auto">
           <div className="flex items-start">
@@ -115,48 +122,39 @@ export default function HowItWorksPage() {
         </div>
       </Section>
 
-      {/* Step 3 */}
-      <Section bg="light">
-        <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-6 lg:gap-12 max-w-5xl mx-auto">
-          <div className="flex items-start">
-            <span className="text-6xl sm:text-7xl font-bold text-clay/15 font-serif leading-none">
-              03
-            </span>
-          </div>
-          <div>
-            <p className="text-clay font-semibold text-sm tracking-wide uppercase font-sans">
-              Step Three
-            </p>
-            <h2 className="mt-2 text-3xl sm:text-4xl font-semibold tracking-tight">
-              Work Gets Done
-            </h2>
-            <p className="mt-4 text-stone leading-relaxed">
-              This is where the job moves from planning to execution. The
-              matched professionals are scheduled, materials are coordinated,
-              and the work begins. Throughout the project, you have one point of
-              contact at Lone Star Contracting Group. You do not need to manage
-              the crew directly, coordinate schedules between trades, or chase
-              updates.
-            </p>
-            <p className="mt-3 text-stone leading-relaxed">
-              We manage the day-to-day coordination. If there is a scheduling
-              change, a materials delay, or a scope adjustment needed, we handle
-              the communication and the logistics. You get updates from us, not
-              from a subcontractor you have never spoken to before.
-            </p>
-            <p className="mt-3 text-stone leading-relaxed">
-              For multi-trade projects, we sequence the work so trades are not
-              stepping on each other. The foundation work finishes before the
-              framing starts. The rough-in plumbing and electrical happen before
-              the drywall goes up. This is basic project management, but it is
-              remarkable how often it gets overlooked when there is no one
-              coordinating the full picture.
-            </p>
-          </div>
-        </div>
-      </Section>
+      {/* Step 3 -- image-led split, reversed */}
+      <SplitImageSection
+        image="/images/lone-star-construction-site.jpg"
+        imageAlt="Active construction work managed by Lone Star Contracting"
+        imagePosition="left"
+        bg="light"
+      >
+        <p className="text-clay font-semibold text-sm tracking-wide uppercase font-sans">
+          Step Three
+        </p>
+        <h2 className="mt-2 text-3xl sm:text-4xl font-semibold tracking-tight">
+          Work Gets Done
+        </h2>
+        <p className="mt-4 text-stone leading-relaxed">
+          This is where the job moves from planning to execution. The
+          matched professionals are scheduled, materials are coordinated,
+          and the work begins. Throughout the project, you have one point of
+          contact at Lone Star Contracting Group.
+        </p>
+        <p className="mt-3 text-stone leading-relaxed">
+          We manage the day-to-day coordination. If there is a scheduling
+          change, a materials delay, or a scope adjustment needed, we handle
+          the communication and the logistics.
+        </p>
+        <p className="mt-3 text-stone leading-relaxed">
+          For multi-trade projects, we sequence the work so trades are not
+          stepping on each other. The foundation work finishes before the
+          framing starts. The rough-in plumbing and electrical happen before
+          the drywall goes up.
+        </p>
+      </SplitImageSection>
 
-      {/* Step 4 */}
+      {/* Step 4 -- text-led */}
       <Section bg="white">
         <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-6 lg:gap-12 max-w-5xl mx-auto">
           <div className="flex items-start">
@@ -180,8 +178,7 @@ export default function HowItWorksPage() {
             </p>
             <p className="mt-3 text-stone leading-relaxed">
               If something is not right, it gets addressed before the job is
-              marked complete. We do not close a project and then hope you do
-              not notice an issue two weeks later. The verification step exists
+              marked complete. The verification step exists
               specifically to catch problems while the crew is still engaged and
               the scope is fresh.
             </p>
@@ -207,8 +204,7 @@ export default function HowItWorksPage() {
             </h3>
             <p className="mt-2 text-sm text-stone leading-relaxed">
               You will have a single point of contact who knows your project.
-              You will not need to explain the job from scratch every time you
-              call. We proactively update you at key milestones: when the crew is
+              We proactively update you at key milestones: when the crew is
               scheduled, when work begins, when it is substantially complete,
               and when verification is done.
             </p>
@@ -220,9 +216,7 @@ export default function HowItWorksPage() {
             <p className="mt-2 text-sm text-stone leading-relaxed">
               We provide timeline estimates based on the scope, trade
               availability, and any permitting requirements. We are honest about
-              timelines. If a project is going to take three weeks, we say three
-              weeks. We do not tell you one week and then drag it out. If
-              something changes, you hear from us immediately.
+              timelines. If something changes, you hear from us immediately.
             </p>
           </div>
           <div className="rounded-lg bg-white p-6 border border-stone/10">
@@ -232,9 +226,7 @@ export default function HowItWorksPage() {
             <p className="mt-2 text-sm text-stone leading-relaxed">
               You will receive a clear scope and pricing before work begins. If
               the scope changes mid-project, we discuss it with you before any
-              additional costs are incurred. There are no surprise charges and
-              no hidden fees. The price we agree on is the price, unless you
-              approve a change in writing.
+              additional costs are incurred. There are no surprise charges.
             </p>
           </div>
           <div className="rounded-lg bg-white p-6 border border-stone/10">
@@ -243,10 +235,8 @@ export default function HowItWorksPage() {
             </h3>
             <p className="mt-2 text-sm text-stone leading-relaxed">
               We coordinate site access with you ahead of time. Crews arrive
-              when expected. If access requirements change, we communicate the
-              adjustment in advance. For commercial properties, we work with
-              your property management team to schedule around tenant needs and
-              building access protocols.
+              when expected. For commercial properties, we work with
+              your property management team to schedule around tenant needs.
             </p>
           </div>
           <div className="rounded-lg bg-white p-6 border border-stone/10">
@@ -255,10 +245,8 @@ export default function HowItWorksPage() {
             </h3>
             <p className="mt-2 text-sm text-stone leading-relaxed">
               If something is not right during or after the project, you contact
-              us. Not the crew, not a subcontractor, not a third party. We own
-              the resolution process. The issue gets documented, addressed, and
-              resolved through us. That is what one point of accountability
-              means in practice.
+              us. Not the crew, not a subcontractor. We own
+              the resolution process.
             </p>
           </div>
           <div className="rounded-lg bg-white p-6 border border-stone/10">
@@ -268,8 +256,7 @@ export default function HowItWorksPage() {
             <p className="mt-2 text-sm text-stone leading-relaxed">
               You receive documentation of the completed work, including any
               relevant permits, inspection records, and before/after photos
-              where applicable. For commercial clients, we provide documentation
-              formatted for your records and any compliance requirements.
+              where applicable.
             </p>
           </div>
         </div>
@@ -293,36 +280,31 @@ export default function HowItWorksPage() {
               <li className="flex gap-3">
                 <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-clay shrink-0" />
                 <span className="text-stone leading-relaxed">
-                  Multi-trade coordination across larger scopes with sequenced
-                  scheduling
+                  Multi-trade coordination across larger scopes with sequenced scheduling
                 </span>
               </li>
               <li className="flex gap-3">
                 <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-clay shrink-0" />
                 <span className="text-stone leading-relaxed">
-                  Coordination with property managers, tenants, and building
-                  management systems
+                  Coordination with property managers, tenants, and building management systems
                 </span>
               </li>
               <li className="flex gap-3">
                 <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-clay shrink-0" />
                 <span className="text-stone leading-relaxed">
-                  Documentation formatted for commercial compliance, insurance
-                  claims, and property records
+                  Documentation formatted for commercial compliance, insurance claims, and property records
                 </span>
               </li>
               <li className="flex gap-3">
                 <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-clay shrink-0" />
                 <span className="text-stone leading-relaxed">
-                  Work scheduled around business operations to minimize
-                  disruption
+                  Work scheduled around business operations to minimize disruption
                 </span>
               </li>
               <li className="flex gap-3">
                 <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-clay shrink-0" />
                 <span className="text-stone leading-relaxed">
-                  Portfolio pricing available for property groups with recurring
-                  needs across multiple locations
+                  Portfolio pricing available for property groups with recurring needs
                 </span>
               </li>
             </ul>
@@ -339,36 +321,31 @@ export default function HowItWorksPage() {
               <li className="flex gap-3">
                 <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-clay shrink-0" />
                 <span className="text-stone leading-relaxed">
-                  Single-trade and multi-trade projects managed with the same
-                  process and accountability
+                  Single-trade and multi-trade projects managed with the same process
                 </span>
               </li>
               <li className="flex gap-3">
                 <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-clay shrink-0" />
                 <span className="text-stone leading-relaxed">
                   Clear scheduling so you know when crews will be at your home
-                  and for how long
                 </span>
               </li>
               <li className="flex gap-3">
                 <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-clay shrink-0" />
                 <span className="text-stone leading-relaxed">
-                  Respectful of your property, your neighbors, and your daily
-                  routine
+                  Respectful of your property, your neighbors, and your daily routine
                 </span>
               </li>
               <li className="flex gap-3">
                 <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-clay shrink-0" />
                 <span className="text-stone leading-relaxed">
-                  Direct communication with a point of contact who speaks
-                  plainly, not in contractor jargon
+                  Direct communication with a point of contact who speaks plainly
                 </span>
               </li>
               <li className="flex gap-3">
                 <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-clay shrink-0" />
                 <span className="text-stone leading-relaxed">
-                  Same verification process as commercial: the job is not done
-                  until the work is reviewed and you are satisfied
+                  Same verification process: the job is not done until the work is reviewed
                 </span>
               </li>
             </ul>
@@ -376,15 +353,24 @@ export default function HowItWorksPage() {
         </div>
       </Section>
 
-      {/* Why This Process Matters */}
+      {/* Pull quote */}
+      <section className="bg-slate py-16 sm:py-20">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+          <blockquote className="font-serif text-2xl sm:text-3xl lg:text-4xl font-semibold text-bone leading-snug tracking-tight">
+            Most contracting problems do not come from bad tradespeople.
+            They come from bad process.
+          </blockquote>
+        </div>
+      </section>
+
+      {/* Why the Process Matters */}
       <Section bg="light">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight">
             Why the Process Matters
           </h2>
           <p className="mt-6 text-lg text-stone leading-relaxed">
-            Most contracting problems do not come from bad tradespeople. They
-            come from bad process. Wrong crew for the job. No clear scope.
+            Wrong crew for the job. No clear scope.
             Nobody coordinating between trades. No one verifying the work before
             the invoice goes out. This four-step process exists to eliminate
             those failure points. It is not complicated. It is just disciplined.
