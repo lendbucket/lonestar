@@ -6,7 +6,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SITE_NAME } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: `Resources | Guides and Insights for Texas Property Owners | ${SITE_NAME}`,
+  title: { absolute: "Resources for Texas Property Owners | Lone Star" },
   description:
     "Guides, articles, and reference material for Texas property owners and subcontractors. Learn about choosing contractors, licensing requirements, and how the contracting industry works.",
 };

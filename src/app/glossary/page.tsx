@@ -5,7 +5,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SITE_NAME } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: `Contracting Glossary | Trade and Construction Terms | ${SITE_NAME}`,
+  title: { absolute: "Contracting Glossary | Lone Star" },
   description:
     "A plain-language glossary of contracting, construction, and trade terms. Understand the terminology used in Texas commercial and residential projects.",
 };

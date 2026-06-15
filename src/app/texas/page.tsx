@@ -6,7 +6,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTABanner } from "@/components/CTA";
 
 export const metadata: Metadata = {
-  title: "Texas Service Areas | Statewide Contractor Coverage",
+  title: { absolute: "Texas Service Areas | Lone Star" },
   description:
     "Lone Star Contracting Group serves every major Texas metro. Houston, Dallas, San Antonio, Austin, Fort Worth, El Paso, Corpus Christi, and beyond. Every trade, one company.",
   alternates: { canonical: "/texas" },

@@ -5,7 +5,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SITE_NAME } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: `What Licensed Trades Require in Texas | ${SITE_NAME}`,
+  title: { absolute: "Licensed Trades in Texas | Lone Star" },
   description:
     "An overview of which trades require state licensing in Texas, including plumbing, electrical, HVAC, and irrigation. What property owners and subcontractors need to know.",
 };

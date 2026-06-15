@@ -6,7 +6,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTABanner } from "@/components/CTA";
 
 export const metadata: Metadata = {
-  title: "Contracting Services Across Texas",
+  title: { absolute: "Contracting Services Texas | Lone Star" },
   description:
     "Commercial and residential contracting services across every major trade. Roofing, foundation repair, plumbing, electrical, HVAC, remodels, and more. Statewide Texas coverage.",
   alternates: { canonical: "/services" },

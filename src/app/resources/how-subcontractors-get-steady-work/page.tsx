@@ -5,7 +5,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SITE_NAME } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: `How Subcontractors Get Steady Work in Texas | ${SITE_NAME}`,
+  title: { absolute: "How Subcontractors Get Steady Work | Lone Star" },
   description:
     "A practical look at how trade professionals in Texas can find consistent work, avoid the feast-or-famine cycle, and evaluate different options for building a reliable pipeline.",
 };

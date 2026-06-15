@@ -5,7 +5,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SITE_NAME } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: `How to Choose a Contractor in Texas | ${SITE_NAME}`,
+  title: { absolute: "How to Choose a Contractor in Texas | Lone Star" },
   description:
     "A practical guide for Texas property owners on evaluating contractors, verifying licenses, checking references, understanding estimates, and avoiding common hiring mistakes.",
 };

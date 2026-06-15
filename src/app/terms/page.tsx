@@ -4,7 +4,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SITE_NAME, SITE_URL, CONTACT_EMAIL } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: `Terms of Service - ${SITE_NAME}`,
+  title: { absolute: "Terms of Service | Lone Star" },
   description:
     "Terms of service for the Lone Star Contracting Group website. Read our terms before using this site or submitting project inquiries.",
 };

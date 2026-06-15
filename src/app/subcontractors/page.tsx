@@ -8,7 +8,7 @@ import { Button, CTABanner } from "@/components/CTA";
 import { SubcontractorIntakeForm } from "@/components/SubcontractorIntakeForm";
 
 export const metadata: Metadata = {
-  title: "Join Our Subcontractor Network | Work Across Texas",
+  title: { absolute: "Subcontractor Network | Lone Star" },
   description:
     "Join the Lone Star Contracting Group network. Steady work, professional management, and fast pay for licensed and insured subcontractors across every trade in Texas.",
   alternates: { canonical: "/subcontractors" },

@@ -5,7 +5,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SITE_NAME } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: `The Lone Star Standard | ${SITE_NAME}`,
+  title: { absolute: "The Lone Star Standard | Our Method" },
   description:
     "The five pillars behind every Lone Star Contracting Group project: vetted network, trade-by-trade matching, licensed where required, one point of accountability, and completion verification.",
 };

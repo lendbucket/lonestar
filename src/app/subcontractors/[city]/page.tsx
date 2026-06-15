@@ -21,7 +21,7 @@ export async function generateMetadata({
   if (!city) return {};
 
   return {
-    title: `Subcontractor Jobs in ${city.name}, TX | Join Our Network`,
+    title: { absolute: `Subcontractor Jobs ${city.name}, TX | Lone Star` },
     description: `Looking for steady contracting work in ${city.name}, Texas? Lone Star Contracting Group is recruiting licensed and insured subcontractors across every trade in ${city.county} County.`,
     alternates: { canonical: `/subcontractors/${city.id}` },
   };

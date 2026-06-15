@@ -5,7 +5,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SITE_NAME, CONTACT_EMAIL } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: `Contact ${SITE_NAME}`,
+  title: { absolute: "Contact Lone Star Contracting Group" },
   description:
     "Get in touch with Lone Star Contracting Group. Tell us about your project or inquire about joining our subcontractor network.",
 };

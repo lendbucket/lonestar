@@ -5,7 +5,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SITE_NAME } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: `About ${SITE_NAME}`,
+  title: { absolute: "About Lone Star Contracting Group" },
   description:
     "Learn how Lone Star Contracting Group delivers any trade anywhere in Texas through one accountable company backed by a vetted network of professionals.",
 };

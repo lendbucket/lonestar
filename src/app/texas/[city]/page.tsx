@@ -22,7 +22,7 @@ export async function generateMetadata({
   if (!city) return {};
 
   return {
-    title: `Contractors in ${city.name}, TX`,
+    title: { absolute: `Contractors in ${city.name}, TX | Lone Star` },
     description: `Commercial and residential contracting services in ${city.name}, Texas. Every major trade delivered through one contractor. Roofing, foundation repair, plumbing, electrical, HVAC, remodels, and more in ${city.county} County.`,
     alternates: { canonical: `/texas/${city.id}` },
   };

@@ -4,7 +4,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SITE_NAME, SITE_URL, CONTACT_EMAIL } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: `Privacy Policy - ${SITE_NAME}`,
+  title: { absolute: "Privacy Policy | Lone Star" },
   description:
     "Privacy policy for Lone Star Contracting Group. Learn how we collect, use, and protect your personal information.",
 };

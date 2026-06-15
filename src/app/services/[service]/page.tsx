@@ -21,8 +21,11 @@ export async function generateMetadata({
   const service = getServiceById(serviceId);
   if (!service) return {};
 
+  const full = `${service.name} Contractor Texas | Lone Star`;
+  const absoluteTitle = full.length <= 60 ? full : `${service.name} Contractor Texas`;
+
   return {
-    title: `${service.name} Contractor Texas | ${SITE_NAME}`,
+    title: { absolute: absoluteTitle },
     description: `${service.description} Serving all major Texas metros. ${service.customerAngle}`,
     alternates: { canonical: `/services/${service.id}` },
     openGraph: {
