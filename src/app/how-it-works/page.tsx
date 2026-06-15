@@ -3,7 +3,8 @@ import { Section, SectionHeader } from "@/components/Section";
 import { Button, CTABanner } from "@/components/CTA";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { PageHero, SplitImageSection } from "@/components/PageHero";
-import { SITE_NAME } from "@/lib/constants";
+import { SITE_URL, SITE_NAME } from "@/lib/constants";
+import { graph, webPageNode, breadcrumbNode, howToNode } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: { absolute: "How It Works | Lone Star" },
@@ -12,8 +13,59 @@ export const metadata: Metadata = {
 };
 
 export default function HowItWorksPage() {
+  const pageUrl = `${SITE_URL}/how-it-works`;
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            graph([
+              webPageNode({
+                url: pageUrl,
+                name: "How It Works",
+                description:
+                  "From project submission to verified completion, here is exactly how Lone Star Contracting Group manages your contracting project across any trade in Texas.",
+                image: "/images/lone-star-project-planning.jpg",
+                breadcrumbId: `${pageUrl}#breadcrumb`,
+                mainEntityId: `${pageUrl}#howto`,
+              }),
+              breadcrumbNode(pageUrl, [
+                { name: "Home", path: "/" },
+                { name: "How It Works", path: "/how-it-works" },
+              ]),
+              howToNode({
+                url: pageUrl,
+                name: "How Lone Star Contracting Group Works",
+                steps: [
+                  {
+                    title: "Submit Your Project",
+                    description:
+                      "Provide your project details through our online intake form, by phone, or by email. We ask specific questions upfront about the type of work, property location, scope, and timeline so we can match accurately.",
+                  },
+                  {
+                    title: "We Scope and Match",
+                    description:
+                      "We review the scope, clarify any gaps, and match the project to the right professionals in our network based on trade, scope, property type, location, and availability.",
+                  },
+                  {
+                    title: "Work Gets Done",
+                    description:
+                      "Matched professionals are scheduled, materials are coordinated, and work begins. You have one point of contact at Lone Star Contracting Group throughout the project.",
+                  },
+                  {
+                    title: "Verification and Close",
+                    description:
+                      "Before any project closes, we verify the work was completed as agreed, quality meets the standard, the site is clean, and permits and inspections passed where required.",
+                  },
+                ],
+              }),
+            ])
+          ),
+        }}
+      />
+
       {/* Hero */}
       <PageHero
         image="/images/lone-star-project-planning.jpg"

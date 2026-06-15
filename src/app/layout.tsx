@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Fraunces } from "next/font/google";
 import { SITE_NAME, SITE_URL, SITE_DESCRIPTION, CONTACT_EMAIL } from "@/lib/constants";
+import { graph, organizationNode, websiteNode } from "@/lib/schema";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import "./globals.css";
@@ -46,27 +47,6 @@ export const metadata: Metadata = {
   },
 };
 
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: SITE_NAME,
-  url: SITE_URL,
-  email: CONTACT_EMAIL,
-  areaServed: {
-    "@type": "State",
-    name: "Texas",
-    sameAs: "https://en.wikipedia.org/wiki/Texas",
-  },
-  sameAs: [] as string[],
-};
-
-const websiteSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: SITE_NAME,
-  url: SITE_URL,
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -81,7 +61,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify([organizationSchema, websiteSchema]),
+            __html: JSON.stringify(graph([organizationNode(), websiteNode()])),
           }}
         />
         <Header />

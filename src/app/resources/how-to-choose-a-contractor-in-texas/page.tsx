@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Section } from "@/components/Section";
 import { CTABanner } from "@/components/CTA";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { SITE_NAME } from "@/lib/constants";
+import { SITE_URL, SITE_NAME } from "@/lib/constants";
+import { graph, webPageNode, breadcrumbNode, articleNode } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: { absolute: "How to Choose a Contractor in Texas | Lone Star" },
@@ -11,8 +12,40 @@ export const metadata: Metadata = {
 };
 
 export default function HowToChooseContractorPage() {
+  const pageUrl = `${SITE_URL}/resources/how-to-choose-a-contractor-in-texas`;
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            graph([
+              webPageNode({
+                url: pageUrl,
+                name: "How to Choose a Contractor in Texas",
+                description:
+                  "A practical guide for Texas property owners on evaluating contractors, verifying licenses, checking references, understanding estimates, and avoiding common hiring mistakes.",
+                breadcrumbId: `${pageUrl}#breadcrumb`,
+                mainEntityId: `${pageUrl}#article`,
+              }),
+              breadcrumbNode(pageUrl, [
+                { name: "Home", path: "/" },
+                { name: "Resources", path: "/resources" },
+                { name: "How to Choose a Contractor", path: "/resources/how-to-choose-a-contractor-in-texas" },
+              ]),
+              articleNode({
+                url: pageUrl,
+                headline: "How to Choose a Contractor in Texas",
+                description:
+                  "A practical guide for Texas property owners on evaluating contractors, verifying licenses, checking references, understanding estimates, and avoiding common hiring mistakes.",
+                datePublished: "2026-06-14",
+              }),
+            ])
+          ),
+        }}
+      />
+
       {/* Breadcrumbs */}
       <Section bg="bone" className="!py-6">
         <Breadcrumbs

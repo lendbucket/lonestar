@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Section, SectionHeader } from "@/components/Section";
 import { Button, CTABanner } from "@/components/CTA";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { SITE_NAME } from "@/lib/constants";
+import { SITE_URL, SITE_NAME } from "@/lib/constants";
+import { graph, webPageNode, breadcrumbNode, articleNode } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: { absolute: "How Subcontractors Get Steady Work | Lone Star" },
@@ -11,8 +12,40 @@ export const metadata: Metadata = {
 };
 
 export default function SubcontractorsSteadyWorkPage() {
+  const pageUrl = `${SITE_URL}/resources/how-subcontractors-get-steady-work`;
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            graph([
+              webPageNode({
+                url: pageUrl,
+                name: "How Subcontractors Get Steady Work in Texas",
+                description:
+                  "A practical look at how trade professionals in Texas can find consistent work, avoid the feast-or-famine cycle, and evaluate different options for building a reliable pipeline.",
+                breadcrumbId: `${pageUrl}#breadcrumb`,
+                mainEntityId: `${pageUrl}#article`,
+              }),
+              breadcrumbNode(pageUrl, [
+                { name: "Home", path: "/" },
+                { name: "Resources", path: "/resources" },
+                { name: "How Subcontractors Get Steady Work", path: "/resources/how-subcontractors-get-steady-work" },
+              ]),
+              articleNode({
+                url: pageUrl,
+                headline: "How Subcontractors Get Steady Work in Texas",
+                description:
+                  "A practical look at how trade professionals in Texas can find consistent work, avoid the feast-or-famine cycle, and evaluate different options for building a reliable pipeline.",
+                datePublished: "2026-06-14",
+              }),
+            ])
+          ),
+        }}
+      />
+
       {/* Breadcrumbs */}
       <Section bg="bone" className="!py-6">
         <Breadcrumbs

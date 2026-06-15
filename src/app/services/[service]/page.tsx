@@ -9,6 +9,12 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Button, CTABanner } from "@/components/CTA";
 import { PageHero, SplitImageSection } from "@/components/PageHero";
 import { SITE_URL, SITE_NAME } from "@/lib/constants";
+import {
+  graph,
+  webPageNode,
+  breadcrumbNode,
+  contractorNode,
+} from "@/lib/schema";
 
 export function generateStaticParams() {
   return services.map((s) => ({ service: s.id }));
@@ -52,28 +58,38 @@ export default async function ServicePage({
     .slice(0, 3);
   const tier1Cities = getTier1Cities();
 
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: service.name,
-    description: service.description,
-    provider: {
-      "@type": "Organization",
-      name: SITE_NAME,
-      url: SITE_URL,
-    },
-    areaServed: {
-      "@type": "State",
-      name: "Texas",
-    },
-    serviceType: service.name,
-  };
+  const pageUrl = `${SITE_URL}/services/${service.id}`;
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            graph([
+              webPageNode({
+                url: pageUrl,
+                name: `${service.name} Contractor Texas`,
+                description: `${service.description} Serving all major Texas metros.`,
+                image: service.image,
+                breadcrumbId: `${pageUrl}#breadcrumb`,
+                mainEntityId: `${pageUrl}#service`,
+              }),
+              breadcrumbNode(pageUrl, [
+                { name: "Home", path: "/" },
+                { name: "Services", path: "/services" },
+                { name: service.name, path: `/services/${service.id}` },
+              ]),
+              contractorNode({
+                url: pageUrl,
+                serviceName: service.name,
+                serviceId: service.id,
+                description: service.description,
+                subServices: service.subServices,
+              }),
+            ])
+          ),
+        }}
       />
 
       {/* Hero with service photo */}

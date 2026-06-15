@@ -15,6 +15,13 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Button, CTABanner } from "@/components/CTA";
 import { PageHero, SplitImageSection } from "@/components/PageHero";
 import { SITE_URL, SITE_NAME, CONTACT_EMAIL } from "@/lib/constants";
+import {
+  graph,
+  webPageNode,
+  breadcrumbNode,
+  serviceNode,
+  faqNode,
+} from "@/lib/schema";
 
 export function generateStaticParams() {
   const params: { city: string; service: string }[] = [];
@@ -276,59 +283,41 @@ export default async function ServiceCityLeaf({
     .map((id) => getCityById(id))
     .filter(Boolean);
 
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    name: `${SITE_NAME} - ${service.name} ${city.name}`,
-    url: `${SITE_URL}/texas/${city.id}/${service.id}`,
-    email: CONTACT_EMAIL,
-    areaServed: {
-      "@type": "City",
-      name: city.name,
-      containedInPlace: { "@type": "State", name: "Texas" },
-    },
-  };
-
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: `${service.name} in ${city.name}, TX`,
-    description: `${service.description} Serving ${city.name} and ${city.county} County.`,
-    provider: {
-      "@type": "Organization",
-      name: SITE_NAME,
-      url: SITE_URL,
-    },
-    areaServed: {
-      "@type": "City",
-      name: city.name,
-    },
-    serviceType: service.name,
-  };
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
-    })),
-  };
+  const pageUrl = `${SITE_URL}/texas/${city.id}/${service.id}`;
 
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify([
-            localBusinessSchema,
-            serviceSchema,
-            faqSchema,
-          ]),
+          __html: JSON.stringify(
+            graph([
+              webPageNode({
+                url: pageUrl,
+                name: `${service.name} in ${city.name}, TX`,
+                description: `${service.description} Serving ${city.name} and ${city.county} County.`,
+                image: service.image,
+                breadcrumbId: `${pageUrl}#breadcrumb`,
+                mainEntityId: `${pageUrl}#service`,
+              }),
+              breadcrumbNode(pageUrl, [
+                { name: "Home", path: "/" },
+                { name: "Texas", path: "/texas" },
+                { name: city.name, path: `/texas/${city.id}` },
+                { name: service.name, path: `/texas/${city.id}/${service.id}` },
+              ]),
+              serviceNode({
+                url: pageUrl,
+                serviceName: service.name,
+                serviceId: service.id,
+                cityName: city.name,
+                description: `${service.description} Serving ${city.name} and ${city.county} County.`,
+                subServices: service.subServices,
+                image: service.image,
+              }),
+              faqNode(pageUrl, faqs),
+            ])
+          ),
         }}
       />
 

@@ -9,6 +9,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Button, CTABanner } from "@/components/CTA";
 import { PageHero, SplitImageSection } from "@/components/PageHero";
 import { SITE_URL, SITE_NAME, CONTACT_EMAIL } from "@/lib/constants";
+import { graph, webPageNode, breadcrumbNode } from "@/lib/schema";
 
 export function generateStaticParams() {
   return cities.map((c) => ({ city: c.id }));
@@ -44,27 +45,30 @@ export default async function CityHub({
     .map((id) => getCityById(id))
     .filter(Boolean);
 
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    name: `${SITE_NAME} - ${city.name}`,
-    url: `${SITE_URL}/texas/${city.id}`,
-    email: CONTACT_EMAIL,
-    areaServed: {
-      "@type": "City",
-      name: city.name,
-      containedInPlace: {
-        "@type": "State",
-        name: "Texas",
-      },
-    },
-  };
+  const pageUrl = `${SITE_URL}/texas/${city.id}`;
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            graph([
+              webPageNode({
+                url: pageUrl,
+                name: `Contractors in ${city.name}, TX`,
+                description: `Commercial and residential contracting services in ${city.name}, Texas. Every major trade delivered through one contractor.`,
+                image: city.heroImage,
+                breadcrumbId: `${pageUrl}#breadcrumb`,
+              }),
+              breadcrumbNode(pageUrl, [
+                { name: "Home", path: "/" },
+                { name: "Texas", path: "/texas" },
+                { name: city.name, path: `/texas/${city.id}` },
+              ]),
+            ])
+          ),
+        }}
       />
 
       {/* Hero with city photo */}
