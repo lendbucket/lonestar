@@ -479,8 +479,16 @@ export function Header() {
     setAreasOpen(false);
   }, []);
 
-  const navBtnClass =
-    "flex items-center gap-0.5 text-sm font-medium text-charcoal/80 transition-colors hover:text-slate min-h-[44px]";
+  const navTextClass = scrolled
+    ? "text-charcoal/80 hover:text-slate"
+    : "text-bone hover:text-white";
+
+  const navBtnClass = cn(
+    "flex items-center gap-0.5 text-sm font-medium transition-colors min-h-[44px]",
+    navTextClass,
+  );
+
+  const iconColor = scrolled ? "text-slate" : "text-bone";
 
   return (
     <>
@@ -516,10 +524,10 @@ export function Header() {
       {/* ---- Main navigation bar ---- */}
       <header
         className={cn(
-          "fixed left-0 right-0 z-50 transition-all duration-300 bg-bone/95 backdrop-blur-sm",
+          "fixed left-0 right-0 z-50 transition-all duration-300",
           scrolled
-            ? "top-0 h-14 shadow-[0_1px_4px_rgba(0,0,0,0.08)]"
-            : "sm:top-9 top-0 h-16 shadow-none border-b border-stone/10",
+            ? "top-0 h-14 bg-bone shadow-[0_1px_4px_rgba(0,0,0,0.08)]"
+            : "sm:top-9 top-0 h-16 bg-gradient-to-b from-black/35 via-black/10 to-transparent",
         )}
       >
         <div className="relative z-10 mx-auto flex h-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -530,7 +538,7 @@ export function Header() {
               scrolled && "scale-90",
             )}
           >
-            <Logo />
+            <Logo variant={scrolled ? "dark" : "light"} />
           </div>
 
           {/* Desktop nav */}
@@ -573,7 +581,10 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-charcoal/80 hover:text-slate transition-colors min-h-[44px] inline-flex items-center"
+                className={cn(
+                  "text-sm font-medium transition-colors min-h-[44px] inline-flex items-center",
+                  navTextClass,
+                )}
                 onClick={closeDesktop}
               >
                 {link.label}
@@ -594,14 +605,20 @@ export function Header() {
           <div className="flex items-center gap-1 lg:hidden">
             <a
               href={SITE_PHONE_TEL}
-              className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center text-slate"
+              className={cn(
+                "inline-flex min-h-[44px] min-w-[44px] items-center justify-center transition-colors",
+                iconColor,
+              )}
               aria-label="Call us"
             >
               <PhoneIcon className="h-5 w-5" />
             </a>
             <button
               type="button"
-              className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center text-charcoal"
+              className={cn(
+                "inline-flex min-h-[44px] min-w-[44px] items-center justify-center transition-colors",
+                iconColor,
+              )}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
               onClick={() => setMobileOpen((o) => !o)}
