@@ -65,7 +65,7 @@ export default function RootLayout({
           }}
         />
         <Header />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 pt-16 sm:pt-[100px]">{children}</main>
         <Footer />
       </body>
     </html>

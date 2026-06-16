@@ -42,7 +42,7 @@ export function Footer() {
 
   return (
     <footer className="bg-slate text-bone/80">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand column */}
           <div className="sm:col-span-2 lg:col-span-1">
@@ -65,12 +65,12 @@ export function Footer() {
             <h3 className="text-sm font-semibold text-bone tracking-wide uppercase font-sans">
               Services
             </h3>
-            <ul className="mt-4 space-y-2.5">
+            <ul className="mt-2 space-y-0">
               {serviceLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-bone/60 hover:text-bone transition-colors"
+                    className="text-sm text-bone/60 hover:text-bone transition-colors inline-flex items-center min-h-[44px]"
                   >
                     {link.label}
                   </Link>
@@ -84,12 +84,12 @@ export function Footer() {
             <h3 className="text-sm font-semibold text-bone tracking-wide uppercase font-sans">
               Service Areas
             </h3>
-            <ul className="mt-4 space-y-2.5">
+            <ul className="mt-2 space-y-0">
               {areaLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-bone/60 hover:text-bone transition-colors"
+                    className="text-sm text-bone/60 hover:text-bone transition-colors inline-flex items-center min-h-[44px]"
                   >
                     {link.label}
                   </Link>
@@ -103,12 +103,12 @@ export function Footer() {
             <h3 className="text-sm font-semibold text-bone tracking-wide uppercase font-sans">
               Company
             </h3>
-            <ul className="mt-4 space-y-2.5">
+            <ul className="mt-2 space-y-0">
               {companyLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-bone/60 hover:text-bone transition-colors"
+                    className="text-sm text-bone/60 hover:text-bone transition-colors inline-flex items-center min-h-[44px]"
                   >
                     {link.label}
                   </Link>
@@ -119,7 +119,7 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-14 pt-8 border-t border-bone/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-10 sm:mt-14 pt-8 border-t border-bone/10 flex flex-col sm:flex-row items-center justify-between gap-4 pb-[env(safe-area-inset-bottom)]">
           <p className="text-xs text-bone/40">
             &copy; {year} {SITE_NAME}. All rights reserved.
           </p>
@@ -128,7 +128,7 @@ export function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-xs text-bone/40 hover:text-bone/70 transition-colors"
+                className="text-xs text-bone/40 hover:text-bone/70 transition-colors inline-flex items-center min-h-[44px]"
               >
                 {link.label}
               </Link>

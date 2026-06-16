@@ -20,7 +20,7 @@ export default function ContactPage() {
       >
         <Breadcrumbs items={[{ label: "Contact", href: "/contact" }]} />
         <div className="mt-6 max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-bone">
+          <h1 className="font-bold tracking-tight text-bone" style={{ fontSize: "clamp(2rem, 5vw + 0.5rem, 3rem)" }}>
             Get in Touch
           </h1>
           <p className="mt-6 text-lg text-bone/80 leading-relaxed">

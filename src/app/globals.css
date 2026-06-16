@@ -49,6 +49,12 @@ h1, h2, h3, h4, h5, h6 {
   color: #fff;
 }
 
+/* Prevent horizontal scroll globally */
+html,
+body {
+  overflow-x: hidden;
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
@@ -58,4 +64,19 @@ html {
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
+}
+
+/* Prevent iOS Safari auto-zoom on input focus */
+input,
+select,
+textarea {
+  font-size: 16px;
+}
+
+/* Active tap feedback for touch devices */
+@media (pointer: coarse) {
+  a:active,
+  button:active {
+    opacity: 0.85;
+  }
 }

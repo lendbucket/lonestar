@@ -86,7 +86,7 @@ export default async function CityHub({
           <p className="text-clay font-semibold text-sm tracking-wide uppercase font-sans">
             {city.region} | {city.county} County
           </p>
-          <h1 className="mt-3 text-4xl sm:text-5xl font-bold tracking-tight text-bone">
+          <h1 className="mt-3 font-bold tracking-tight text-bone" style={{ fontSize: "clamp(1.75rem, 4vw + 0.5rem, 3rem)" }}>
             Contractors in {city.name}, Texas
           </h1>
           <p className="mt-6 text-lg text-bone/80 leading-relaxed max-w-2xl">

@@ -15,7 +15,7 @@ export function PageHero({
   priority = true,
 }: PageHeroProps) {
   return (
-    <section className="relative min-h-[420px] sm:min-h-[480px] lg:min-h-[540px] flex items-end overflow-hidden">
+    <section className="relative -mt-16 sm:-mt-[100px] min-h-[320px] sm:min-h-[480px] lg:min-h-[540px] flex items-end overflow-hidden">
       <Image
         src={image}
         alt={imageAlt}
@@ -29,7 +29,7 @@ export function PageHero({
         className="absolute inset-0 bg-gradient-to-t from-slate/90 via-slate/60 to-slate/30"
         aria-hidden="true"
       />
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 pb-10 sm:pb-16 lg:pb-20">
         {children}
       </div>
     </section>
@@ -86,7 +86,7 @@ export function SplitImageSection({
   }[bg];
 
   return (
-    <section className={`${bgClass} py-16 sm:py-20 lg:py-24`}>
+    <section className={`${bgClass} py-10 sm:py-16 lg:py-24`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div
           className={`grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center ${

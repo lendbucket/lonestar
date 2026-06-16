@@ -23,7 +23,7 @@ export default function TexasHub() {
       >
         <Breadcrumbs items={[{ label: "Texas", href: "/texas" }]} />
         <div className="mt-6 max-w-3xl">
-          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-bone">
+          <h1 className="font-bold tracking-tight text-bone" style={{ fontSize: "clamp(2rem, 5vw + 0.5rem, 3rem)" }}>
             Statewide Texas Coverage
           </h1>
           <p className="mt-6 text-lg text-bone/80 leading-relaxed">
@@ -80,7 +80,7 @@ export default function TexasHub() {
 
       <Section bg="white">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl font-semibold tracking-tight">
+          <h2 className="font-semibold tracking-tight" style={{ fontSize: "clamp(1.5rem, 3vw + 0.5rem, 1.875rem)" }}>
             More Cities Coming Soon
           </h2>
           <p className="mt-4 text-lg text-stone">

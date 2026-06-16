@@ -23,7 +23,7 @@ export default function ServicesHub() {
       >
         <Breadcrumbs items={[{ label: "Services", href: "/services" }]} />
         <div className="mt-6 max-w-3xl">
-          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-bone">
+          <h1 className="font-bold tracking-tight text-bone" style={{ fontSize: "clamp(2rem, 5vw + 0.5rem, 3rem)" }}>
             Every Trade. One Company.
           </h1>
           <p className="mt-6 text-lg text-bone/80 leading-relaxed">

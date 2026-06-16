@@ -223,18 +223,22 @@ export function SubcontractorIntakeForm() {
               <span className="text-sm font-medium text-charcoal">Email</span>
               <input
                 type="email"
+                inputMode="email"
+                autoComplete="email"
                 value={formData.email}
                 onChange={(e) => updateField("email", e.target.value)}
-                className="mt-1 block w-full rounded-md border border-stone/20 bg-bone px-4 py-3 text-charcoal placeholder:text-stone/50 focus:border-clay focus:ring-1 focus:ring-clay"
+                className="mt-1 block w-full rounded-md border border-stone/20 bg-bone px-4 py-3 text-base text-charcoal placeholder:text-stone/50 focus:border-clay focus:ring-1 focus:ring-clay"
               />
             </label>
             <label className="block">
               <span className="text-sm font-medium text-charcoal">Phone</span>
               <input
                 type="tel"
+                inputMode="tel"
+                autoComplete="tel"
                 value={formData.phone}
                 onChange={(e) => updateField("phone", e.target.value)}
-                className="mt-1 block w-full rounded-md border border-stone/20 bg-bone px-4 py-3 text-charcoal placeholder:text-stone/50 focus:border-clay focus:ring-1 focus:ring-clay"
+                className="mt-1 block w-full rounded-md border border-stone/20 bg-bone px-4 py-3 text-base text-charcoal placeholder:text-stone/50 focus:border-clay focus:ring-1 focus:ring-clay"
               />
             </label>
           </div>
@@ -424,12 +428,12 @@ export function SubcontractorIntakeForm() {
       )}
 
       {/* Navigation */}
-      <div className="mt-8 flex items-center justify-between">
+      <div className="mt-8 flex items-center justify-between gap-4">
         {step > 1 ? (
           <button
             type="button"
             onClick={() => setStep((s) => s - 1)}
-            className="text-sm font-medium text-stone hover:text-slate transition-colors"
+            className="min-h-[44px] min-w-[44px] text-sm font-medium text-stone hover:text-slate transition-colors"
           >
             Back
           </button>
@@ -442,7 +446,7 @@ export function SubcontractorIntakeForm() {
             type="button"
             onClick={() => setStep((s) => s + 1)}
             disabled={!canAdvance()}
-            className="rounded-md bg-clay px-6 py-3 text-sm font-semibold text-white hover:bg-clay/90 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+            className="min-h-[44px] rounded-md bg-clay px-6 py-3 text-sm font-semibold text-white hover:bg-clay/90 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
           >
             Continue
           </button>
@@ -451,7 +455,7 @@ export function SubcontractorIntakeForm() {
             type="button"
             onClick={handleSubmit}
             disabled={!canAdvance() || status === "loading"}
-            className="rounded-md bg-clay px-6 py-3 text-sm font-semibold text-white hover:bg-clay/90 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+            className="min-h-[44px] rounded-md bg-clay px-6 py-3 text-sm font-semibold text-white hover:bg-clay/90 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
           >
             {status === "loading" ? "Submitting..." : "Submit Application"}
           </button>

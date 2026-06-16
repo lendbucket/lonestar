@@ -92,7 +92,7 @@ export default function HomePage() {
           <p className="text-clay font-semibold text-sm tracking-wide uppercase font-sans">
             Statewide Texas Contractor
           </p>
-          <h1 className="mt-4 text-4xl sm:text-5xl lg:text-6xl font-bold text-bone tracking-tight leading-[1.1]">
+          <h1 className="mt-4 font-bold text-bone tracking-tight leading-[1.1]" style={{ fontSize: "clamp(2rem, 6vw + 0.5rem, 3.75rem)" }}>
             One Call. Every Trade.
             <br />
             All of Texas.
@@ -102,11 +102,11 @@ export default function HomePage() {
             accountable point of contact. No chasing subcontractors. No
             juggling crews. One company that handles it all.
           </p>
-          <div className="mt-10 flex flex-col sm:flex-row gap-4">
-            <Button href="/contact" variant="primary" size="lg">
+          <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-4">
+            <Button href="/contact" variant="primary" size="lg" className="w-full sm:w-auto">
               Get a Free Quote
             </Button>
-            <Button href="/services" variant="outline" size="lg" className="border-bone/40 text-bone hover:bg-bone hover:text-slate">
+            <Button href="/services" variant="outline" size="lg" className="w-full sm:w-auto border-bone/40 text-bone hover:bg-bone hover:text-slate">
               View All Services
             </Button>
           </div>
@@ -115,18 +115,18 @@ export default function HomePage() {
 
       {/* ---- Stat ribbon ---- */}
       <section className="bg-slate border-t border-bone/10">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+          <div className="grid grid-cols-3 gap-4 sm:gap-8 text-center">
             <div>
-              <p className="font-serif text-4xl sm:text-5xl font-bold text-clay">45</p>
+              <p className="font-serif font-bold text-clay" style={{ fontSize: "clamp(2rem, 5vw + 0.5rem, 3rem)" }}>45</p>
               <p className="mt-2 text-sm text-bone/60 font-sans">Trades Under One Contract</p>
             </div>
             <div>
-              <p className="font-serif text-4xl sm:text-5xl font-bold text-clay">7</p>
+              <p className="font-serif font-bold text-clay" style={{ fontSize: "clamp(2rem, 5vw + 0.5rem, 3rem)" }}>7</p>
               <p className="mt-2 text-sm text-bone/60 font-sans">Major Texas Metros</p>
             </div>
             <div>
-              <p className="font-serif text-4xl sm:text-5xl font-bold text-clay">4</p>
+              <p className="font-serif font-bold text-clay" style={{ fontSize: "clamp(2rem, 5vw + 0.5rem, 3rem)" }}>4</p>
               <p className="mt-2 text-sm text-bone/60 font-sans">Steps to Verified Completion</p>
             </div>
           </div>
@@ -161,7 +161,7 @@ export default function HomePage() {
 
       {/* ---- Text-led section: For Subcontractors ---- */}
       <section className="bg-bone">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-24">
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-clay font-semibold text-sm tracking-wide uppercase font-sans">
               For Subcontractors
@@ -319,9 +319,9 @@ export default function HomePage() {
       </Section>
 
       {/* ---- Pull quote ---- */}
-      <section className="bg-slate py-16 sm:py-20">
+      <section className="bg-slate py-10 sm:py-16 lg:py-20">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-          <blockquote className="font-serif text-2xl sm:text-3xl lg:text-4xl font-semibold text-bone leading-snug tracking-tight">
+          <blockquote className="font-serif font-semibold text-bone leading-snug tracking-tight" style={{ fontSize: "clamp(1.25rem, 3vw + 0.5rem, 2.25rem)" }}>
             One contract. One schedule. One point of accountability.
             That is how contracting should work.
           </blockquote>

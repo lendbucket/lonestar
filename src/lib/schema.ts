@@ -15,7 +15,7 @@ import { SITE_URL, SITE_NAME, CONTACT_EMAIL } from "@/lib/constants";
    ========================================================================= */
 export const ORG = {
   legalName: "Lone Star Contracting Group LLC", // TODO confirm exact registered entity
-  telephone: "",                                 // TODO real public phone, e.g. "+1-361-555-0123". Leave "" to omit.
+  telephone: "+1-540-447-9432",
   baseLocality: "Corpus Christi",
   baseRegion: "TX",
   geo: { lat: 27.8006, lng: -97.3964 },          // Corpus Christi HQ. Adjust if your base differs.

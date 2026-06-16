@@ -340,7 +340,7 @@ export default async function ServiceCityLeaf({
           <p className="text-clay font-semibold text-sm tracking-wide uppercase font-sans">
             {city.name}, TX | {city.region}
           </p>
-          <h1 className="mt-3 text-4xl sm:text-5xl font-bold tracking-tight text-bone">
+          <h1 className="mt-3 font-bold tracking-tight text-bone" style={{ fontSize: "clamp(1.75rem, 4vw + 0.5rem, 3rem)" }}>
             {service.name} in {city.name}, Texas
           </h1>
           <p className="mt-6 text-lg text-bone/80 leading-relaxed max-w-2xl">
@@ -357,14 +357,14 @@ export default async function ServiceCityLeaf({
             </p>
           )}
           <div className="mt-8 flex flex-col sm:flex-row gap-4">
-            <Button href="/contact" variant="primary" size="lg">
+            <Button href="/contact" variant="primary" size="lg" className="w-full sm:w-auto">
               Get a Quote in {city.name}
             </Button>
             <Button
               href={`/services/${service.id}`}
               variant="outline"
               size="lg"
-              className="border-bone/40 text-bone hover:bg-bone hover:text-slate"
+              className="w-full sm:w-auto border-bone/40 text-bone hover:bg-bone hover:text-slate"
             >
               About {service.name}
             </Button>

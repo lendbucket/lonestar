@@ -7,5 +7,5 @@ export const SITE_DESCRIPTION =
 export const SITE_TAGLINE = "One call. Every trade. All of Texas.";
 
 /** Primary phone number shown in the header utility bar. */
-export const SITE_PHONE_DISPLAY = "(512) 555-0199";
-export const SITE_PHONE_TEL = "tel:+15125550199";
+export const SITE_PHONE_DISPLAY = "(540) 447-9432";
+export const SITE_PHONE_TEL = "tel:+15404479432";

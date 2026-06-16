@@ -108,7 +108,7 @@ export default async function ServicePage({
           <p className="text-clay font-semibold text-sm tracking-wide uppercase font-sans">
             {service.category}
           </p>
-          <h1 className="mt-3 text-4xl sm:text-5xl font-bold tracking-tight text-bone">
+          <h1 className="mt-3 font-bold tracking-tight text-bone" style={{ fontSize: "clamp(2rem, 5vw + 0.5rem, 3rem)" }}>
             {service.name}
           </h1>
           <p className="mt-6 text-lg text-bone/80 leading-relaxed max-w-2xl">
@@ -153,7 +153,7 @@ export default async function ServicePage({
         imagePosition="right"
         bg="light"
       >
-        <h2 className="text-3xl font-semibold tracking-tight">
+        <h2 className="font-semibold tracking-tight" style={{ fontSize: "clamp(1.5rem, 3vw + 0.5rem, 1.875rem)" }}>
           Why Choose Lone Star for {service.name}
         </h2>
         <div className="mt-6 space-y-4 text-stone leading-relaxed">

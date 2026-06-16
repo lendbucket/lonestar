@@ -21,7 +21,7 @@ export function Section({
   }[bg];
 
   return (
-    <section id={id} className={`py-16 sm:py-20 lg:py-24 ${bgClass} ${className}`}>
+    <section id={id} className={`py-10 sm:py-16 lg:py-24 ${bgClass} ${className}`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">{children}</div>
     </section>
   );
@@ -38,7 +38,7 @@ export function SectionHeader({
 }) {
   return (
     <div className={`max-w-3xl ${centered ? "mx-auto text-center" : ""} mb-12`}>
-      <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight">
+      <h2 className="font-semibold tracking-tight" style={{ fontSize: "clamp(1.5rem, 3vw + 0.5rem, 2.25rem)" }}>
         {title}
       </h2>
       {subtitle && (
