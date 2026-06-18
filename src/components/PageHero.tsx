@@ -24,9 +24,14 @@ export function PageHero({
         className="object-cover"
         sizes="100vw"
       />
-      {/* Warm slate overlay for legibility */}
+      {/* Flat tint layer beneath gradient for guaranteed contrast */}
       <div
-        className="absolute inset-0 bg-gradient-to-t from-slate/90 via-slate/60 to-slate/30"
+        className="absolute inset-0 bg-slate/25"
+        aria-hidden="true"
+      />
+      {/* Strong gradient overlay for legibility */}
+      <div
+        className="absolute inset-0 bg-gradient-to-t from-slate/95 via-slate/85 to-slate/60"
         aria-hidden="true"
       />
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 pb-10 sm:pb-16 lg:pb-20">
