@@ -24,14 +24,12 @@ export function PageHero({
         className="object-cover"
         sizes="100vw"
       />
-      {/* Flat tint layer beneath gradient for guaranteed contrast */}
       <div
-        className="absolute inset-0 bg-slate/25"
-        aria-hidden="true"
-      />
-      {/* Strong gradient overlay for legibility */}
-      <div
-        className="absolute inset-0 bg-gradient-to-t from-slate/95 via-slate/85 to-slate/60"
+        className="absolute inset-0"
+        style={{
+          backgroundImage:
+            "linear-gradient(to top, rgba(30,42,56,0.95) 0%, rgba(30,42,56,0.88) 45%, rgba(30,42,56,0.75) 75%, rgba(30,42,56,0.68) 100%)",
+        }}
         aria-hidden="true"
       />
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 pb-10 sm:pb-16 lg:pb-20">

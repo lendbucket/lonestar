@@ -527,8 +527,9 @@ export function Header() {
           "fixed left-0 right-0 z-50 transition-all duration-300",
           scrolled
             ? "top-0 h-14 bg-bone shadow-[0_1px_4px_rgba(0,0,0,0.08)]"
-            : "sm:top-9 top-0 h-16 bg-gradient-to-b from-black/35 via-black/10 to-transparent",
+            : "sm:top-9 top-0 h-16",
         )}
+        style={!scrolled ? { backgroundImage: "linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.15) 60%, rgba(0,0,0,0))" } : undefined}
       >
         <div className="relative z-10 mx-auto flex h-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           {/* Logo */}

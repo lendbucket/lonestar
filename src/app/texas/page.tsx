@@ -55,7 +55,7 @@ export default function TexasHub() {
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate/60 to-transparent" aria-hidden="true" />
+                <div className="absolute inset-0" style={{ backgroundImage: "linear-gradient(to top, rgba(30,42,56,0.6) 0%, transparent 100%)" }} aria-hidden="true" />
                 <div className="absolute bottom-3 left-4">
                   <h2 className="text-xl font-semibold text-bone font-serif drop-shadow-sm">
                     {city.name}
